@@ -1,0 +1,345 @@
+{
+  "schema_version": 1,
+  "policy_form": "OEP-2027-SYN",
+  "claim_count": 10,
+  "documents_per_claim": 4,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "236be67c75a94fc85f14bfb704fb03d68b3272f9e828fcbcc7aa8351cef9fae8",
+      "size": 2752
+    },
+    {
+      "path": "agent_requirements.md",
+      "sha256": "cff0672921acf901621e9b3e02bb8dbcf06cfc3ba84b45be977cc51f08f19ba9",
+      "size": 3139
+    },
+    {
+      "path": "claims/OEP-27-1087/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "62fef6ba2343bfdb355a07483aceb06540cbe97815abc45cd6ea47603cc08ccc",
+      "size": 39606
+    },
+    {
+      "path": "claims/OEP-27-1087/2_Tenancy_Financial_Journal.docx",
+      "sha256": "c5121940815a494367e2905a096ac4801e0718f42bd552fbeadf45ce45a7c137",
+      "size": 38533
+    },
+    {
+      "path": "claims/OEP-27-1087/3_Restoration_Cost_Register.docx",
+      "sha256": "87d57d02f5484dbb89a5d8e79e3344efb08d6ab9094b2e7c0593c166d04fec12",
+      "size": 39494
+    },
+    {
+      "path": "claims/OEP-27-1087/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "4585cf38f089d4d3687a2e8055eaeb051d08213d091855f6d883c25e722c5750",
+      "size": 40229
+    },
+    {
+      "path": "claims/OEP-27-2146/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "773eec564fb07aa3b8141aedeff62dcf43295b5402a6b35da88dbdb44b03fd11",
+      "size": 39575
+    },
+    {
+      "path": "claims/OEP-27-2146/2_Tenancy_Financial_Journal.docx",
+      "sha256": "8447da7d9634e27bbb54cd2c4d398dab32c6882c44da81cff15a8250345c1cd4",
+      "size": 38516
+    },
+    {
+      "path": "claims/OEP-27-2146/3_Premises_Condition_Log.docx",
+      "sha256": "d8b88c4206bdbc4ce551a2edd40df9411393d8849af49005c2473bd80d6a9785",
+      "size": 39416
+    },
+    {
+      "path": "claims/OEP-27-2146/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "769a9d454e06195a9444f6d821842f28876c9ae01ad959bde10837bdb2821f58",
+      "size": 40220
+    },
+    {
+      "path": "claims/OEP-27-2849/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "00f7a7f5a3cdf44ac9f8bee2ca6486bcd47ac13859d0ebe8789bf2cac2d58b45",
+      "size": 39609
+    },
+    {
+      "path": "claims/OEP-27-2849/2_Tenancy_Financial_Journal.docx",
+      "sha256": "19d22cbce311951dadbedc33c2c495911303008860bd5d7b3aaa32533e3314f3",
+      "size": 38485
+    },
+    {
+      "path": "claims/OEP-27-2849/3_Restoration_Cost_Register.docx",
+      "sha256": "3361dfdeb5022a215c6f28bd1125541bb6a6549184a2c00099b714e522dc7abc",
+      "size": 39360
+    },
+    {
+      "path": "claims/OEP-27-2849/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "e97460fe153d43dddf3a5fbacf39f1f56c8604463cf28afaa70209081e41774c",
+      "size": 40235
+    },
+    {
+      "path": "claims/OEP-27-4358/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "37df38f89262b2adcdd510fd323188f725dd4c3414d98bd8ac9b404e0776a9e4",
+      "size": 39593
+    },
+    {
+      "path": "claims/OEP-27-4358/2_Tenancy_Financial_Journal.docx",
+      "sha256": "380c5b0a037389f6dc165f11e40da2ff5f23e0a4968c1432b042dadc7179e90b",
+      "size": 38483
+    },
+    {
+      "path": "claims/OEP-27-4358/3_Restoration_Cost_Register.docx",
+      "sha256": "464718456c21b230b25206e783958e2706e9f12bccf7b5b218e91b7e80510c8c",
+      "size": 39356
+    },
+    {
+      "path": "claims/OEP-27-4358/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "e43375d98aea98a3cbf8994e9cd0bd315a1deee2e6bf08445d31b189a40b0c64",
+      "size": 40231
+    },
+    {
+      "path": "claims/OEP-27-4706/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "ace3ba21d0f301be90d49ba83d76582d13d4d6ce5ec7c67683ebd3a59bc9704d",
+      "size": 39596
+    },
+    {
+      "path": "claims/OEP-27-4706/2_Tenancy_Financial_Journal.docx",
+      "sha256": "5598588f10cc3ac0c78882d6c50e74fe5a81b95fa73f42b4a0a83d88b1567007",
+      "size": 38585
+    },
+    {
+      "path": "claims/OEP-27-4706/3_Premises_Condition_Log.docx",
+      "sha256": "fd654824875f6ff672806706c10a884d0bf9c6bed2616b6e9fd236dfeb4f9e8e",
+      "size": 39551
+    },
+    {
+      "path": "claims/OEP-27-4706/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "3cafc914ff109052681b8881a1cfc41b104b2435326a17088b2fbd57fa6f75db",
+      "size": 40224
+    },
+    {
+      "path": "claims/OEP-27-5804/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "540c8d36ad23768f2c0d18501bd57ad5b89d91d5df9a0dceabcd50ad0017ef29",
+      "size": 39610
+    },
+    {
+      "path": "claims/OEP-27-5804/2_Tenancy_Financial_Journal.docx",
+      "sha256": "40f7e86daf0ae1848a8a4bac1aa1611cda2be403c6d4017ee8ba5ee79c4c0e68",
+      "size": 38587
+    },
+    {
+      "path": "claims/OEP-27-5804/3_Restoration_Cost_Register.docx",
+      "sha256": "7bda40eea364eb0e79982cbdd36ed1a3eba96762ee0beffc073abe6913faf2f9",
+      "size": 39546
+    },
+    {
+      "path": "claims/OEP-27-5804/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "491a8e138d275cc16aa6b699913667e48f9b9f670c276462336b28b910fe2fca",
+      "size": 40221
+    },
+    {
+      "path": "claims/OEP-27-6795/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "967b8b240b4a2577d3d2a412af6d9d1d2bc22f4ad60749b0e84b8736e27e19c9",
+      "size": 39586
+    },
+    {
+      "path": "claims/OEP-27-6795/2_Tenancy_Financial_Journal.docx",
+      "sha256": "3122b59d715f6ba95aee412fbfb6263550cc9aa08cdfdea3eee59361da5b6842",
+      "size": 38701
+    },
+    {
+      "path": "claims/OEP-27-6795/3_Restoration_Cost_Register.docx",
+      "sha256": "9e60af146a55ec818f2104b5804a318f1de21edf8468edddb0f66af13174824d",
+      "size": 39575
+    },
+    {
+      "path": "claims/OEP-27-6795/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "e61f629ef354cbc46154d8ccf28dec80edaa4663a3c46130e9904c7749ea2337",
+      "size": 40226
+    },
+    {
+      "path": "claims/OEP-27-8150/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "e3ae5d670d53fa78a1c8bb7e670179f203ef889fa2183e5f461c1aaf2aa6bd34",
+      "size": 39599
+    },
+    {
+      "path": "claims/OEP-27-8150/2_Tenancy_Financial_Journal.docx",
+      "sha256": "5c465aace99538b3862f9c81279a53cef2e5580a136ae1bca9f10ae5789c960e",
+      "size": 38579
+    },
+    {
+      "path": "claims/OEP-27-8150/3_Premises_Condition_Log.docx",
+      "sha256": "7a54bc0f38be5e7e294a95c6bca35fb659b4e8e10c6a17051809e2da2a0c9b4b",
+      "size": 39513
+    },
+    {
+      "path": "claims/OEP-27-8150/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "a0d7fb6f79a6eb4295b089250a7a3581b47b4fa4bc6a1d84fc776ae1dab9a698",
+      "size": 40227
+    },
+    {
+      "path": "claims/OEP-27-9062/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "2697d50bf0eab50e27fe3892b94556911746c2347fcafb9cf111e2b47a9026c0",
+      "size": 39611
+    },
+    {
+      "path": "claims/OEP-27-9062/2_Tenancy_Financial_Journal.docx",
+      "sha256": "45a9ad1daace361e7224a93ae0d05943924c32e48a077ddbdab6f909f202f372",
+      "size": 38597
+    },
+    {
+      "path": "claims/OEP-27-9062/3_Restoration_Cost_Register.docx",
+      "sha256": "0d4ac0edc723c7928f6d33164cc12c4bdf7ac2e020f75adfe5c30170f36178b7",
+      "size": 39576
+    },
+    {
+      "path": "claims/OEP-27-9062/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "69b09b7aa904ef1b1e8356379ddec6a1287ff66c84beb29c1e0859d833ebae1c",
+      "size": 40238
+    },
+    {
+      "path": "claims/OEP-27-9548/1_Loss_Notice_and_Record_Index.docx",
+      "sha256": "20f8541d1cb2c17235cc464dab6a905e9f16af4b5a3e6432c97f5ff86d2fada7",
+      "size": 39603
+    },
+    {
+      "path": "claims/OEP-27-9548/2_Tenancy_Financial_Journal.docx",
+      "sha256": "bfe51b4b610b77f5ced502830da85372317661d81626544e661d168e0b5f0235",
+      "size": 38520
+    },
+    {
+      "path": "claims/OEP-27-9548/3_Restoration_Cost_Register.docx",
+      "sha256": "244e2d3222e6f765cd4c3ddc1509a9aec6948ea3566630ba788ba9c0ecf166cd",
+      "size": 39448
+    },
+    {
+      "path": "claims/OEP-27-9548/4_Covered_Tenancy_Certificate.docx",
+      "sha256": "06900e9da8c53db7ec80ef0e1d8255558526ff28a41c8f711718b17ea4294dbb",
+      "size": 40229
+    },
+    {
+      "path": "examples/OEP-27-1087_expected.json",
+      "sha256": "4e4c54fc65ae88dabbe80ed17d0492c5a21afd36d1c6ed88c812255427296616",
+      "size": 35395
+    },
+    {
+      "path": "examples/OEP-27-9062_expected.json",
+      "sha256": "0f892c12e9d9bfd98bce5ba7a4c2db0e550e3dd9e2e8fcdc401303cfa90efaa8",
+      "size": 42586
+    },
+    {
+      "path": "examples/OEP-27-9548_expected.json",
+      "sha256": "97256e428ad57848664defbf1e142da41270e4a62e449ca957b89b099514762f",
+      "size": 36815
+    },
+    {
+      "path": "output_schema.json",
+      "sha256": "b159d9af0f0589ff48d9f8f33f2ffdf243857f7dd522d145e73415d4e2d8f39d",
+      "size": 42158
+    },
+    {
+      "path": "policy/00_Master_Form_OEP-2027-SYN.docx",
+      "sha256": "175e785bf12407d5efacee83396d86212f399fd54c39911325af5daa85f872d8",
+      "size": 41158
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "OEP-27-9062",
+      "label": "labeled_example",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Restoration_Cost_Register.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    },
+    {
+      "claim_id": "OEP-27-9548",
+      "label": "labeled_example",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Restoration_Cost_Register.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    },
+    {
+      "claim_id": "OEP-27-1087",
+      "label": "labeled_example",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Restoration_Cost_Register.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    },
+    {
+      "claim_id": "OEP-27-2849",
+      "label": "visible_development",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Restoration_Cost_Register.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    },
+    {
+      "claim_id": "OEP-27-8150",
+      "label": "visible_development",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Premises_Condition_Log.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    },
+    {
+      "claim_id": "OEP-27-4706",
+      "label": "visible_development",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Premises_Condition_Log.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    },
+    {
+      "claim_id": "OEP-27-6795",
+      "label": "visible_development",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Restoration_Cost_Register.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    },
+    {
+      "claim_id": "OEP-27-2146",
+      "label": "visible_development",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Premises_Condition_Log.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    },
+    {
+      "claim_id": "OEP-27-4358",
+      "label": "visible_development",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Restoration_Cost_Register.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    },
+    {
+      "claim_id": "OEP-27-5804",
+      "label": "visible_development",
+      "documents": [
+        "1_Loss_Notice_and_Record_Index.docx",
+        "2_Tenancy_Financial_Journal.docx",
+        "3_Restoration_Cost_Register.docx",
+        "4_Covered_Tenancy_Certificate.docx"
+      ]
+    }
+  ]
+}

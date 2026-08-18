@@ -1,0 +1,1771 @@
+{
+  "$defs": {
+    "checklist_item": {
+      "additionalProperties": false,
+      "properties": {
+        "detail": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "item": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "provided",
+            "not_applicable",
+            "missing",
+            "unclear"
+          ]
+        }
+      },
+      "required": [
+        "item",
+        "status",
+        "detail",
+        "source_page",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "citation": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "heading": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "clause_id",
+        "heading",
+        "source_page",
+        "quote"
+      ],
+      "type": "object"
+    },
+    "conflict_value": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_document": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "value": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_document",
+        "source_page",
+        "value",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "decision_line": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "category": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/citation"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "claimed_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "covered_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "description": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "excluded_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "held_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "rationale": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "rule_trace": {
+          "items": {
+            "$ref": "#/$defs/rule_trace_step"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "source_document": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_index": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "covered",
+            "partially_covered",
+            "excluded",
+            "needs_review"
+          ]
+        }
+      },
+      "required": [
+        "source_index",
+        "description",
+        "category",
+        "claimed_amount",
+        "status",
+        "covered_amount",
+        "excluded_amount",
+        "held_amount",
+        "approved_amount",
+        "rationale",
+        "citations",
+        "source_document",
+        "source_page",
+        "source_evidence"
+      ],
+      "type": "object"
+    },
+    "document_audit": {
+      "additionalProperties": false,
+      "properties": {
+        "document_type": {
+          "enum": [
+            "loss_notice_and_record_index",
+            "tenancy_financial_journal",
+            "restoration_cost_register",
+            "premises_condition_log",
+            "covered_tenancy_certificate"
+          ]
+        },
+        "extraction": {
+          "$ref": "#/$defs/document_extraction"
+        },
+        "filename": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "page_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "provenance": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "rendered_pages": {
+          "items": {
+            "$ref": "#/$defs/rendered_page"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "filename",
+        "document_type",
+        "sha256",
+        "page_count",
+        "provenance"
+      ],
+      "type": "object"
+    },
+    "document_extraction": {
+      "additionalProperties": false,
+      "properties": {
+        "agreement_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "checklist_items": {
+          "items": {
+            "$ref": "#/$defs/checklist_item"
+          },
+          "type": "array"
+        },
+        "claim_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claim_type": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claimed_total": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "document_type": {
+          "enum": [
+            "loss_notice_and_record_index",
+            "tenancy_financial_journal",
+            "restoration_cost_register",
+            "premises_condition_log",
+            "covered_tenancy_certificate"
+          ]
+        },
+        "ending_balance": {
+          "multipleOf": 0.01,
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "event_date": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_assertions": {
+          "items": {
+            "$ref": "#/$defs/evidence_assertion"
+          },
+          "type": "array"
+        },
+        "facts": {
+          "items": {
+            "$ref": "#/$defs/source_fact"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "ledger_entries": {
+          "items": {
+            "$ref": "#/$defs/ledger_entry"
+          },
+          "type": "array"
+        },
+        "limit_mentions": {
+          "items": {
+            "$ref": "#/$defs/money_mention"
+          },
+          "type": "array"
+        },
+        "participant_name": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "policy_form": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "protected_location": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "protection_end": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "protection_start": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "statement_date": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "submitted_lines": {
+          "items": {
+            "$ref": "#/$defs/submitted_line"
+          },
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_type",
+        "claim_id",
+        "agreement_id",
+        "participant_name",
+        "protected_location",
+        "policy_form",
+        "claim_type",
+        "claimed_total",
+        "ending_balance",
+        "event_date",
+        "protection_start",
+        "protection_end",
+        "statement_date",
+        "limit_mentions",
+        "submitted_lines",
+        "ledger_entries",
+        "checklist_items",
+        "evidence_assertions",
+        "facts",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "evidence_assertion": {
+      "additionalProperties": false,
+      "properties": {
+        "applies_to": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "evidence_type": {
+          "enum": [
+            "account_ledger",
+            "charges_statement",
+            "condition_record",
+            "protection_agreement",
+            "invoice",
+            "work_order",
+            "component_record",
+            "temporary_arrangement_receipt",
+            "completion_record",
+            "photograph",
+            "payment_credit_or_recovery",
+            "other"
+          ]
+        },
+        "label": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "reference": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "provided",
+            "attached",
+            "not_provided",
+            "estimate_only",
+            "missing_detail",
+            "not_applicable",
+            "unclear"
+          ]
+        }
+      },
+      "required": [
+        "evidence_type",
+        "label",
+        "status",
+        "reference",
+        "applies_to",
+        "source_page",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "ledger_entry": {
+      "additionalProperties": false,
+      "properties": {
+        "charge_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "credit_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "description": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "entry_date": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "entry_type": {
+          "enum": [
+            "charge",
+            "payment",
+            "credit",
+            "recovery",
+            "reversal",
+            "adjustment"
+          ]
+        },
+        "evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "running_balance": {
+          "multipleOf": 0.01,
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "entry_date",
+        "description",
+        "entry_type",
+        "charge_amount",
+        "credit_amount",
+        "running_balance",
+        "source_page",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "line_adjustment": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "detail": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "betterment",
+            "depreciation",
+            "duplicate",
+            "ledger_reversal",
+            "payment_credit_or_recovery",
+            "missing_proof",
+            "wear_or_pre_existing",
+            "noncovered_fee",
+            "time_cutoff",
+            "other"
+          ]
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind",
+        "amount",
+        "detail",
+        "source_page",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "math_audit": {
+      "additionalProperties": false,
+      "properties": {
+        "allocation_order": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "approved_lines_total": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "cap_method": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "case_identity_passed": {
+          "type": "boolean"
+        },
+        "currency": {
+          "const": "USD"
+        },
+        "line_identity_passed": {
+          "type": "boolean"
+        },
+        "preliminary_payable_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "reconciliation_evidence": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "rounding_mode": {
+          "const": "ROUND_HALF_UP"
+        }
+      },
+      "required": [
+        "currency",
+        "rounding_mode",
+        "line_identity_passed",
+        "case_identity_passed",
+        "cap_method",
+        "allocation_order",
+        "preliminary_payable_amount",
+        "approved_lines_total",
+        "reconciliation_evidence"
+      ],
+      "type": "object"
+    },
+    "model_call": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "cost_source": {
+          "enum": [
+            "provider",
+            "estimated",
+            "not_available"
+          ]
+        },
+        "cost_usd": {
+          "minimum": 0,
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "duration_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "provider": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "purpose": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "requested_model": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "response_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "routed_model": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "routed_provider": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "stored_by_provider": {
+          "type": "boolean"
+        },
+        "usage": {
+          "$ref": "#/$defs/token_usage"
+        }
+      },
+      "required": [
+        "purpose",
+        "provider",
+        "requested_model",
+        "routed_provider",
+        "routed_model",
+        "response_id",
+        "duration_ms",
+        "usage",
+        "stored_by_provider",
+        "cost_usd",
+        "cost_source",
+        "attempt_count"
+      ],
+      "type": "object"
+    },
+    "money_mention": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "label",
+        "amount",
+        "source_page",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "policy_audit": {
+      "additionalProperties": false,
+      "properties": {
+        "extraction": {
+          "$ref": "#/$defs/policy_extraction"
+        },
+        "filename": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "page_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "provenance": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "rendered_pages": {
+          "items": {
+            "$ref": "#/$defs/rendered_page"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "filename",
+        "sha256",
+        "page_count",
+        "provenance"
+      ],
+      "type": "object"
+    },
+    "policy_clause": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "heading": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        }
+      },
+      "required": [
+        "clause_id",
+        "heading",
+        "text",
+        "source_page",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "policy_extraction": {
+      "additionalProperties": false,
+      "properties": {
+        "clauses": {
+          "items": {
+            "$ref": "#/$defs/policy_clause"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "policy_form": {
+          "const": "OEP-2027-SYN"
+        },
+        "warnings": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_form",
+        "clauses",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "policy_match": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "heading": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "lexical_boost": {
+          "type": "number"
+        },
+        "method": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "similarity": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query",
+        "method",
+        "clause_id",
+        "heading",
+        "text",
+        "source_page",
+        "similarity",
+        "lexical_boost",
+        "score"
+      ],
+      "type": "object"
+    },
+    "rendered_page": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_anchor": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "extracted_text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "image_artifact": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "page_number": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "text_artifact": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        }
+      },
+      "required": [
+        "page_number",
+        "extracted_text",
+        "evidence_anchor"
+      ],
+      "type": "object"
+    },
+    "rule_trace_step": {
+      "additionalProperties": false,
+      "properties": {
+        "adjustment_amount": {
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "detail": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "input_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "outcome": {
+          "enum": [
+            "applied",
+            "passed",
+            "held",
+            "excluded",
+            "informational"
+          ]
+        },
+        "output_amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "rule_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "outcome",
+        "input_amount",
+        "adjustment_amount",
+        "output_amount",
+        "detail",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "source_conflict": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "field": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "resolution": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "resolution_status": {
+          "enum": [
+            "resolved",
+            "unresolved"
+          ]
+        },
+        "values": {
+          "items": {
+            "$ref": "#/$defs/conflict_value"
+          },
+          "minItems": 2,
+          "type": "array"
+        }
+      },
+      "required": [
+        "field",
+        "values",
+        "resolution_status",
+        "resolution",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "source_fact": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "field": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "value": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "value",
+        "source_page",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "submitted_line": {
+      "additionalProperties": false,
+      "properties": {
+        "adjustments": {
+          "items": {
+            "$ref": "#/$defs/line_adjustment"
+          },
+          "type": "array"
+        },
+        "amount": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": "number"
+        },
+        "category_hint": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "documentation_status": {
+          "enum": [
+            "sufficient",
+            "estimate_only",
+            "missing",
+            "not_applicable",
+            "unclear"
+          ]
+        },
+        "evidence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "first_use_date": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "life_used_months": {
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "protected_period_end": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "protected_period_start": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reference": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_classification": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "source_index": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "source_page": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "stated_rate": {
+          "minimum": 0,
+          "multipleOf": 0.01,
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "useful_life_months": {
+          "minimum": 1,
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "source_index",
+        "description",
+        "category_hint",
+        "source_classification",
+        "amount",
+        "documentation_status",
+        "adjustments",
+        "reference",
+        "first_use_date",
+        "useful_life_months",
+        "life_used_months",
+        "protected_period_start",
+        "protected_period_end",
+        "stated_rate",
+        "source_page",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "token_usage": {
+      "additionalProperties": false,
+      "properties": {
+        "cached_input_tokens": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "total_tokens": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "cached_input_tokens",
+        "output_tokens",
+        "total_tokens"
+      ],
+      "type": "object"
+    },
+    "tool_call": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "duration_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "evidence": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "output_summary": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "purpose": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "recovered_after_retry"
+          ]
+        },
+        "tool": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        }
+      },
+      "required": [
+        "purpose",
+        "tool",
+        "attempt_count",
+        "duration_ms",
+        "status",
+        "output_summary",
+        "evidence"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://example.invalid/schemas/alderquill-occupancy-exit-completed-batch-v2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "V2 strict result schema for one through 10 registered, preview-only synthetic trial cases. Candidate-visible and hidden evaluator cases use this same contract; failure traces are submitted separately.",
+  "properties": {
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "approved_amount": {
+            "minimum": 0,
+            "multipleOf": 0.01,
+            "type": "number"
+          },
+          "case_number": {
+            "maximum": 20,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "claim_id": {
+            "pattern": "^OEP-27-[0-9]{4}$",
+            "type": "string"
+          },
+          "claim_type": {
+            "const": "occupancy_exit_protection"
+          },
+          "claimed_amount": {
+            "minimum": 0,
+            "multipleOf": 0.01,
+            "type": "number"
+          },
+          "completed_at": {
+            "format": "date-time",
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "covered_amount": {
+            "minimum": 0,
+            "multipleOf": 0.01,
+            "type": "number"
+          },
+          "decision_lines": {
+            "items": {
+              "$ref": "#/$defs/decision_line"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "disposition": {
+            "enum": [
+              "approved",
+              "escalated"
+            ]
+          },
+          "documents": {
+            "allOf": [
+              {
+                "contains": {
+                  "properties": {
+                    "document_type": {
+                      "const": "loss_notice_and_record_index"
+                    }
+                  },
+                  "required": [
+                    "document_type"
+                  ],
+                  "type": "object"
+                },
+                "maxContains": 1,
+                "minContains": 1
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "document_type": {
+                      "const": "tenancy_financial_journal"
+                    }
+                  },
+                  "required": [
+                    "document_type"
+                  ],
+                  "type": "object"
+                },
+                "maxContains": 1,
+                "minContains": 1
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "document_type": {
+                      "const": "covered_tenancy_certificate"
+                    }
+                  },
+                  "required": [
+                    "document_type"
+                  ],
+                  "type": "object"
+                },
+                "maxContains": 1,
+                "minContains": 1
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "document_type": {
+                      "enum": [
+                        "restoration_cost_register",
+                        "premises_condition_log"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "document_type"
+                  ],
+                  "type": "object"
+                },
+                "maxContains": 1,
+                "minContains": 1
+              }
+            ],
+            "items": {
+              "$ref": "#/$defs/document_audit"
+            },
+            "maxItems": 4,
+            "minItems": 4,
+            "type": "array"
+          },
+          "excluded_amount": {
+            "minimum": 0,
+            "multipleOf": 0.01,
+            "type": "number"
+          },
+          "gate": {
+            "additionalProperties": false,
+            "properties": {
+              "checks": {
+                "description": "Candidate-defined deterministic checks. Check IDs must be unique, weights must total 100, and score must equal the weights of passed checks.",
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "evidence": {
+                      "items": {
+                        "minLength": 1,
+                        "pattern": "\\S",
+                        "type": "string"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "hard_fail": {
+                      "type": "boolean"
+                    },
+                    "id": {
+                      "minLength": 1,
+                      "pattern": "\\S",
+                      "type": "string"
+                    },
+                    "label": {
+                      "minLength": 1,
+                      "pattern": "\\S",
+                      "type": "string"
+                    },
+                    "passed": {
+                      "type": "boolean"
+                    },
+                    "weight": {
+                      "maximum": 100,
+                      "minimum": 0,
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "passed",
+                    "weight",
+                    "evidence",
+                    "hard_fail"
+                  ],
+                  "type": "object"
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "eligible_for_stp": {
+                "type": "boolean"
+              },
+              "hard_failure": {
+                "type": "boolean"
+              },
+              "route": {
+                "enum": [
+                  "auto_approve",
+                  "partial_approve_with_hold",
+                  "human_review"
+                ]
+              },
+              "route_evidence": {
+                "items": {
+                  "minLength": 1,
+                  "pattern": "\\S",
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "score": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              },
+              "threshold": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              }
+            },
+            "required": [
+              "score",
+              "threshold",
+              "hard_failure",
+              "eligible_for_stp",
+              "route",
+              "checks",
+              "route_evidence"
+            ],
+            "type": "object"
+          },
+          "held_amount": {
+            "minimum": 0,
+            "multipleOf": 0.01,
+            "type": "number"
+          },
+          "math_audit": {
+            "$ref": "#/$defs/math_audit"
+          },
+          "model_calls": {
+            "items": {
+              "$ref": "#/$defs/model_call"
+            },
+            "type": "array"
+          },
+          "outcome_summary": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "policy_audit": {
+            "$ref": "#/$defs/policy_audit"
+          },
+          "policy_form": {
+            "const": "OEP-2027-SYN"
+          },
+          "policy_limit": {
+            "minimum": 0,
+            "multipleOf": 0.01,
+            "type": "number"
+          },
+          "retrieved_policy": {
+            "items": {
+              "$ref": "#/$defs/policy_match"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "run_id": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "source_conflicts": {
+            "items": {
+              "$ref": "#/$defs/source_conflict"
+            },
+            "type": "array"
+          },
+          "tool_calls": {
+            "items": {
+              "$ref": "#/$defs/tool_call"
+            },
+            "type": "array"
+          },
+          "warnings": {
+            "items": {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "writeback_preview": {
+            "additionalProperties": false,
+            "properties": {
+              "approved_amount": {
+                "minimum": 0,
+                "multipleOf": 0.01,
+                "type": "number"
+              },
+              "automation_quality_score": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "case_number": {
+                "maximum": 20,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "claim_id": {
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "claim_type": {
+                "const": "occupancy_exit_protection"
+              },
+              "claimed_amount": {
+                "minimum": 0,
+                "multipleOf": 0.01,
+                "type": "number"
+              },
+              "covered_amount": {
+                "minimum": 0,
+                "multipleOf": 0.01,
+                "type": "number"
+              },
+              "destination": {
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "excluded_amount": {
+                "minimum": 0,
+                "multipleOf": 0.01,
+                "type": "number"
+              },
+              "external_write_performed": {
+                "const": false
+              },
+              "held_amount": {
+                "minimum": 0,
+                "multipleOf": 0.01,
+                "type": "number"
+              },
+              "payment_action": {
+                "const": "preview_only"
+              },
+              "policy_citations": {
+                "items": {
+                  "minLength": 1,
+                  "pattern": "\\S",
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "policy_limit": {
+                "minimum": 0,
+                "multipleOf": 0.01,
+                "type": "number"
+              },
+              "route": {
+                "enum": [
+                  "auto_approve",
+                  "partial_approve_with_hold",
+                  "human_review"
+                ]
+              },
+              "ruleset": {
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "simulated": {
+                "const": true
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "partially_approved_items_held",
+                  "needs_human_review"
+                ]
+              }
+            },
+            "required": [
+              "simulated",
+              "external_write_performed",
+              "destination",
+              "case_number",
+              "claim_id",
+              "claim_type",
+              "route",
+              "status",
+              "claimed_amount",
+              "covered_amount",
+              "excluded_amount",
+              "held_amount",
+              "approved_amount",
+              "policy_limit",
+              "automation_quality_score",
+              "policy_citations",
+              "ruleset",
+              "payment_action"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "run_id",
+          "case_number",
+          "claim_id",
+          "claim_type",
+          "policy_form",
+          "claimed_amount",
+          "covered_amount",
+          "excluded_amount",
+          "held_amount",
+          "policy_limit",
+          "approved_amount",
+          "disposition",
+          "outcome_summary",
+          "decision_lines",
+          "math_audit",
+          "gate",
+          "documents",
+          "policy_audit",
+          "retrieved_policy",
+          "source_conflicts",
+          "warnings",
+          "writeback_preview",
+          "model_calls",
+          "tool_calls",
+          "completed_at"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "results"
+  ],
+  "title": "Alderquill occupancy exit protection V2 result",
+  "type": "object"
+}

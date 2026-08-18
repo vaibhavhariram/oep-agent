@@ -68,7 +68,7 @@ def load_result(path: Path) -> TopLevelResult:
 
 def dump_result(result: TopLevelResult) -> dict:
     """Serialize a top-level result back to a plain dict (JSON-safe types)."""
-    return result.model_dump(mode="json")
+    return result.model_dump(mode="json", exclude_unset=True)
 
 
 # ---------------------------------------------------------------------------

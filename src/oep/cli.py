@@ -49,11 +49,81 @@ def pages(
 
 
 @app.command()
+def extract(claim_id: str) -> None:
+    """Run LLM extraction + normalization for a claim and print results."""
+    from oep.extraction.client import build_page_tagged_text, extract_document
+    from oep.extraction.normalize import normalize_all
+    from oep.extraction.schemas import (
+        RawCertificate,
+        RawFinancialJournal,
+        RawLossNotice,
+        RawSourceRegister,
+    )
+    from oep.extraction.table_parser import (
+        crosscheck_journal,
+        crosscheck_source_lines,
+        parse_journal,
+        parse_source_lines,
+    )
+
+    pkt = packet.assemble_packet(claim_id)
+    raw_extractions = {}
+    call_records = []
+
+    for doc in pkt.documents:
+        typer.echo(f"Extracting {doc.filename} ...", err=True)
+        tagged = build_page_tagged_text(doc.pages)
+        raw, call = extract_document(
+            doc.document_type, tagged, claim_id=claim_id
+        )
+        raw_extractions[doc.document_type] = raw
+        call_records.append(call)
+
+    # Table-parser cross-check.
+    journal_parsed = parse_journal(pkt.documents[1].pages)
+    raw_journal = raw_extractions["tenancy_financial_journal"]
+    j_warnings = crosscheck_journal(journal_parsed, raw_journal.ledger_entries)
+    for w in j_warnings:
+        typer.echo(f"  ⚠ journal cross-check: {w}", err=True)
+
+    reg_doc = pkt.documents[2]
+    src_parsed = parse_source_lines(reg_doc.pages)
+    raw_register = raw_extractions[reg_doc.document_type]
+    sl_warnings = crosscheck_source_lines(
+        src_parsed, raw_register.presented_source_lines
+    )
+    for w in sl_warnings:
+        typer.echo(f"  ⚠ register cross-check: {w}", err=True)
+
+    # Normalize.
+    normalized = normalize_all(
+        loss_notice=raw_extractions["loss_notice_and_record_index"],
+        journal=raw_extractions["tenancy_financial_journal"],
+        source_register=raw_extractions[reg_doc.document_type],
+        certificate=raw_extractions["covered_tenancy_certificate"],
+    )
+
+    # Print as JSON.
+    output = []
+    for ext in normalized:
+        output.append(ext.model_dump(mode="json"))
+    typer.echo(json.dumps(output, indent=2))
+
+    # Summary.
+    typer.echo(
+        f"\n{len(call_records)} model calls, "
+        f"{len(j_warnings)} journal warnings, "
+        f"{len(sl_warnings)} register warnings",
+        err=True,
+    )
+
+
+@app.command()
 def run(claim_id: str) -> None:
     """Process a single claim (not yet implemented)."""
     raise NotImplementedError(
         f"'oep run {claim_id}' is not yet implemented — "
-        "extraction, rules, and routing come in Day 2+."
+        "rules, gate, and routing come in Day 3+."
     )
 
 

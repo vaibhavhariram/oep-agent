@@ -11,6 +11,7 @@ dependencies = [
     "jsonschema>=4.0",
     "lxml>=5.0",
     "typer>=0.12",
+    "anthropic>=0.39",
 ]
 
 [project.optional-dependencies]

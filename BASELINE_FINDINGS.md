@@ -24,15 +24,18 @@ Both use one model call per claim, no rules engine, no reconciliation, no gate.
 
 **Purpose**: Test whether reducing output complexity improves schema compliance.
 
-**Input**: All four claim documents (page-tagged text) + full policy text.
+**Input**: All four claim documents (page-tagged text) + full policy text (OEP-2027-SYN, 7 pages).
 
-**Output**: Reduced JSON with only adjudication core (claim_id, policy_limit, disposition, route, claimed/covered/excluded/held/approved totals, decision_lines array).
+**Output**: Reduced JSON with only adjudication core:
+- Metadata: `claim_id`, `policy_limit`, `disposition`, `route`
+- Totals: `claimed_total`, `covered_total`, `excluded_total`, `held_total`, `approved_total`
+- Decision lines array (one per submitted line): `source_index`, `description`, `category`, `status`, five amount fields
 
 **Model**: Claude Haiku 4.5, temperature 0.
 
-**Max Tokens**: 4096 (ample for reduced schema).
+**Max Tokens**: 4096 (ample for reduced output; no exhaustion observed).
 
-**Schema**: JSON Schema with `additionalProperties: false` on decision lines (but model still adds fields like `rationale`).
+**Schema**: JSON Schema with strict `additionalProperties: false` (model still adds fields like `rationale`, causing validation failure).
 
 ## Results
 

@@ -1,0 +1,70 @@
+{
+  "claim_id": "OEP-27-5804",
+  "policy_limit": 2640.00,
+  "claimed_amount": 3297.00,
+  "covered_amount": 1995.00,
+  "excluded_amount": 344.00,
+  "held_amount": 958.00,
+  "approved_amount": 1995.00,
+  "disposition": "approved",
+  "route": "partial_approve_with_hold",
+  "gate_score": 90,
+  "eligible_for_stp": false,
+  "decision_lines": [
+    {
+      "source_index": 0,
+      "description": "Drywall and finish restoration",
+      "category": "unit_restoration",
+      "status": "covered",
+      "claimed_amount": 1163.00,
+      "covered_amount": 1163.00,
+      "excluded_amount": 0.00,
+      "held_amount": 0.00,
+      "approved_amount": 1163.00
+    },
+    {
+      "source_index": 1,
+      "description": "Reletting interval — 7 days at $61.00 per day",
+      "category": "reletting_gap",
+      "status": "covered",
+      "claimed_amount": 427.00,
+      "covered_amount": 427.00,
+      "excluded_amount": 0.00,
+      "held_amount": 0.00,
+      "approved_amount": 427.00
+    },
+    {
+      "source_index": 2,
+      "description": "Entry floor finish replacement",
+      "category": "unit_restoration",
+      "status": "partially_covered",
+      "claimed_amount": 648.00,
+      "covered_amount": 405.00,
+      "excluded_amount": 243.00,
+      "held_amount": 0.00,
+      "approved_amount": 405.00
+    },
+    {
+      "source_index": 3,
+      "description": "Isolation valve replacement",
+      "category": "unit_restoration",
+      "status": "needs_review",
+      "claimed_amount": 958.00,
+      "covered_amount": 0.00,
+      "excluded_amount": 0.00,
+      "held_amount": 958.00,
+      "approved_amount": 0.00
+    },
+    {
+      "source_index": 4,
+      "description": "Administrative charge",
+      "category": "operator_fee",
+      "status": "excluded",
+      "claimed_amount": 101.00,
+      "covered_amount": 0.00,
+      "excluded_amount": 101.00,
+      "held_amount": 0.00,
+      "approved_amount": 0.00
+    }
+  ]
+}

@@ -18,6 +18,15 @@ CLAIMS_DIR: Path = DATA_DIR / "claims"
 EXAMPLES_DIR: Path = DATA_DIR / "examples"
 POLICY_DIR: Path = DATA_DIR / "policy"
 
+GOLDEN_DIR: Path = DATA_DIR / "examples"
+EVAL_GOLDEN_DIR: Path = Path(__file__).resolve().parents[2] / "eval" / "golden"
+
 DATASET_INDEX_PATH: Path = DATA_DIR / "dataset_index.json"
 OUTPUT_SCHEMA_PATH: Path = DATA_DIR / "output_schema.json"
 POLICY_DOCX_PATH: Path = POLICY_DIR / "00_Master_Form_OEP-2027-SYN.docx"
+
+OUTPUTS_DIR: Path = _REPO_ROOT / "outputs"
+
+# LLM configuration
+DEFAULT_MODEL: str = os.environ.get("OEP_MODEL", "claude-haiku-4-5-20251001")
+DEFAULT_PROVIDER: str = "anthropic"

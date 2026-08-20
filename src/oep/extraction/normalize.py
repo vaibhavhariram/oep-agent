@@ -41,6 +41,8 @@ CATEGORY_MAP: dict[str, str] = {
     "reletting gap": "reletting_gap",
     "upgrade or elective improvement": "upgrade",
     "fee or service charge": "operator_fee",
+    "routine turnover": "ordinary_upkeep",
+    "duplicate source entry": "duplicate",
 }
 
 # record_status (verbatim from doc) → documentation_status (enum)
@@ -198,8 +200,9 @@ def _build_shared_header(
 # §6 — Reletting gap date/rate parsing from service_life_fact
 # ===================================================================
 
+_DATE_RE = r'(?:\d{4}-\d{2}-\d{2}|\d{2}/\d{2}/\d{4})'
 _GAP_PATTERN = re.compile(
-    r"Gap:\s*(\d{4}-\d{2}-\d{2})\s*[\u2013\u2014-]\s*(\d{4}-\d{2}-\d{2})\s+at\s+\$?([\d,.]+)/day"
+    rf"Gap:\s*({_DATE_RE})\s*[\u2013\u2014-]\s*({_DATE_RE})\s+at\s+\$?([\d,.]+)/day"
 )
 
 

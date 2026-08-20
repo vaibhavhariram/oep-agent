@@ -27,4 +27,4 @@ oep = "oep.cli:app"
 where = ["src"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "eval"]

@@ -309,3 +309,55 @@ def crosscheck_source_lines(
             )
 
     return warnings
+
+
+# ===================================================================
+# Factual observations parser
+# ===================================================================
+
+@dataclass
+class ParsedFactualObservation:
+    observation: str
+    recorded_fact: str
+    source_page: int
+
+
+def parse_factual_observations(pages: list[PageData]) -> list[ParsedFactualObservation]:
+    """Parse the 'Factual observations' table from the last page of a register."""
+    rows: list[ParsedFactualObservation] = []
+    if not pages:
+        return rows
+
+    # Observations are on the last page (page 2 for most registers).
+    text = pages[-1].extracted_text
+    lines = text.split("\n")
+    in_table = False
+
+    for line in lines:
+        if "|" not in line:
+            if in_table:
+                break
+            continue
+
+        cells = _split_pipe_row(line)
+
+        # Detect header row.
+        if any("observation" in c.lower() for c in cells) and any(
+            "recorded fact" in c.lower() or "fact" in c.lower() for c in cells
+        ):
+            in_table = True
+            continue
+
+        if not in_table:
+            continue
+
+        if len(cells) < 2 or not cells[0] or not cells[1]:
+            continue
+
+        rows.append(ParsedFactualObservation(
+            observation=cells[0],
+            recorded_fact=cells[1],
+            source_page=pages[-1].page_number,
+        ))
+
+    return rows

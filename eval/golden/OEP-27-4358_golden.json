@@ -1,0 +1,51 @@
+{
+  "claim_id": "OEP-27-4358",
+  "policy_limit": 2385.00,
+  "claimed_amount": 4390.00,
+  "covered_amount": 2546.00,
+  "excluded_amount": 106.00,
+  "held_amount": 1738.00,
+  "approved_amount": 2385.00,
+  "disposition": "approved",
+  "route": "partial_approve_with_hold",
+  "gate_score": 90,
+  "eligible_for_stp": false,
+  "notes": {
+    "cap": "Policy limit binds. Covered amount $2,546 exceeds limit $2,385. Greedy cap allocation in source order."
+  },
+  "decision_lines": [
+    {
+      "source_index": 0,
+      "description": "Completed kitchen and wall restoration",
+      "category": "unit_restoration",
+      "status": "covered",
+      "claimed_amount": 2546.00,
+      "covered_amount": 2546.00,
+      "excluded_amount": 0.00,
+      "held_amount": 0.00,
+      "approved_amount": 2385.00
+    },
+    {
+      "source_index": 1,
+      "description": "Additional cabinet supplement",
+      "category": "unit_restoration",
+      "status": "needs_review",
+      "claimed_amount": 1738.00,
+      "covered_amount": 0.00,
+      "excluded_amount": 0.00,
+      "held_amount": 1738.00,
+      "approved_amount": 0.00
+    },
+    {
+      "source_index": 2,
+      "description": "Reopening processing charge",
+      "category": "operator_fee",
+      "status": "excluded",
+      "claimed_amount": 106.00,
+      "covered_amount": 0.00,
+      "excluded_amount": 106.00,
+      "held_amount": 0.00,
+      "approved_amount": 0.00
+    }
+  ]
+}

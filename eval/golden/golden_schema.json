@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OEP Golden Evaluation Schema (Reduced)",
+  "description": "Minimal sufficient fields for adjudicating correctness of OEP claim determinations. Everything outside this schema is out of scope for scoring.",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "policy_limit",
+    "claimed_amount",
+    "covered_amount",
+    "excluded_amount",
+    "held_amount",
+    "approved_amount",
+    "disposition",
+    "route",
+    "gate_score",
+    "decision_lines"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "pattern": "^OEP-27-\\d{4}$"
+    },
+    "policy_limit": {
+      "type": "number",
+      "description": "Certificate limit in USD"
+    },
+    "claimed_amount": {
+      "type": "number",
+      "description": "Total claimed amount in USD"
+    },
+    "covered_amount": {
+      "type": "number",
+      "description": "Total covered (eligible) amount before cap"
+    },
+    "excluded_amount": {
+      "type": "number",
+      "description": "Total excluded amount"
+    },
+    "held_amount": {
+      "type": "number",
+      "description": "Total held (unresolved) amount"
+    },
+    "approved_amount": {
+      "type": "number",
+      "description": "Total approved (payable) amount after cap"
+    },
+    "disposition": {
+      "type": "string",
+      "enum": ["approved", "escalated"]
+    },
+    "route": {
+      "type": "string",
+      "enum": ["auto_approve", "human_review", "partial_approve_with_hold"]
+    },
+    "gate_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "eligible_for_stp": {
+      "type": "boolean",
+      "description": "Straight-to-payment eligibility"
+    },
+    "notes": {
+      "type": "object",
+      "description": "Optional annotations for scoring edge cases (e.g., recovery attribution convention, cap binding)"
+    },
+    "decision_lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_index",
+          "description",
+          "category",
+          "status",
+          "claimed_amount",
+          "covered_amount",
+          "excluded_amount",
+          "held_amount",
+          "approved_amount"
+        ],
+        "properties": {
+          "source_index": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Zero-based position in the source register"
+          },
+          "description": {
+            "type": "string",
+            "description": "Item label from the source register"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "occupancy_balance",
+              "reletting_gap",
+              "unit_restoration",
+              "operator_fee",
+              "upgrade",
+              "standard_turnover"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": ["covered", "partially_covered", "excluded", "needs_review"]
+          },
+          "claimed_amount": { "type": "number" },
+          "covered_amount": { "type": "number" },
+          "excluded_amount": { "type": "number" },
+          "held_amount": { "type": "number" },
+          "approved_amount": { "type": "number" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

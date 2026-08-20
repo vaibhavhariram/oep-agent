@@ -15,6 +15,7 @@ from decimal import Decimal
 import anthropic
 from pydantic import BaseModel, ValidationError
 
+from oep.config import DEFAULT_MODEL, DEFAULT_PROVIDER
 from oep.extraction.prompts import PROMPT_BY_DOC_TYPE, system_preamble
 from oep.extraction.schemas import RAW_SCHEMA_BY_DOC_TYPE
 
@@ -42,14 +43,6 @@ class ModelCallRecord:
     cost_usd: float | None
     cost_source: str  # "provider" | "estimated" | "not_available"
     stored_by_provider: bool
-
-
-# ---------------------------------------------------------------------------
-# Default model configuration
-# ---------------------------------------------------------------------------
-
-DEFAULT_MODEL = "claude-sonnet-4-20250514"
-DEFAULT_PROVIDER = "anthropic"
 
 
 # ---------------------------------------------------------------------------
@@ -165,7 +158,7 @@ def extract_document(
         provider=DEFAULT_PROVIDER,
         requested_model=model,
         routed_provider=DEFAULT_PROVIDER,
-        routed_model=response.model if hasattr(response, "model") else model,
+        routed_model=getattr(response, "model", model),
         response_id=response_id,
         duration_ms=total_duration_ms,
         attempt_count=attempt_count,

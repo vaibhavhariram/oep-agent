@@ -15,6 +15,18 @@ pip install -e ".[dev]"
 
 Requires Python 3.11+.
 
+### Environment variables
+
+Copy `.env.example` to `.env` and fill in your key:
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `ANTHROPIC_API_KEY` | *(required)* | Anthropic API key for LLM extraction |
+| `OEP_MODEL` | `claude-haiku-4-5-20251001` | Model used for document extraction |
+| `OEP_DATA_DIR` | `./data` | Path to the dataset directory |
+
+LLM extraction uses the Anthropic API (provider: Anthropic, model determined by `OEP_MODEL`).
+
 ## CLI commands
 
 ```bash
@@ -27,12 +39,20 @@ oep pages OEP-27-1087
 # Show a single document (1-based index)
 oep pages OEP-27-1087 --doc 4
 
-# Process a single claim (not yet implemented)
+# Process a single claim end-to-end
 oep run OEP-27-1087
 
-# Process all ten visible claims (not yet implemented)
+# Override the case number (required schema field, defaults to 1)
+oep run OEP-27-1087 --case-number 3
+
+# Process all ten visible claims (case_number = run index 1..10)
 oep run-all
 ```
+
+> **Note:** `case_number` is a required schema field that does not appear in any
+> source document.  It defaults to `1` for single runs and the 1-based loop index
+> for `run-all`.  In production it would come from the claims system.
+> See `KNOWN_LIMITATIONS.md` for additional caveats.
 
 ## Tests
 

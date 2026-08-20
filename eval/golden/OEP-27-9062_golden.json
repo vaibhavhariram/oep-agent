@@ -1,0 +1,913 @@
+{
+  "results": [
+    {
+      "approved_amount": 2675.0,
+      "case_number": 3,
+      "claim_id": "OEP-27-9062",
+      "claim_type": "occupancy_exit_protection",
+      "claimed_amount": 3698.0,
+      "completed_at": "2027-02-10T23:59:59Z",
+      "covered_amount": 3421.0,
+      "decision_lines": [
+        {
+          "approved_amount": 1725.0,
+          "category": "occupancy_balance",
+          "citations": [
+            {
+              "clause_id": "OEP-2.1",
+              "heading": "Part A \u2014 occupancy balance",
+              "quote": "Part A includes a scheduled occupancy amount remaining at possession return after attributable payments, concessions, reversals, credits, and recoveries are applied once.",
+              "source_page": 2
+            },
+            {
+              "clause_id": "OEP-3.3",
+              "heading": "Journal evidence",
+              "quote": "An occupancy balance or gap requires a tenancy journal identifying the tenancy, scheduled charge, debits, credits, reversals, and recoveries through closeout; an unexplained aggregate or code is unresolved.",
+              "source_page": 3
+            }
+          ],
+          "claimed_amount": 1725.0,
+          "covered_amount": 1725.0,
+          "description": "Outstanding occupancy installment",
+          "excluded_amount": 0.0,
+          "held_amount": 0.0,
+          "rationale": "The source line satisfies the cited policy requirements.",
+          "rule_trace": [
+            {
+              "adjustment_amount": 0.0,
+              "detail": "No exclusion, hold, offset, or valuation reduction applies.",
+              "evidence": [
+                "3_Restoration_Cost_Register.docx:page:1:line:1"
+              ],
+              "input_amount": 1725.0,
+              "outcome": "applied",
+              "output_amount": 1725.0,
+              "rule_id": "OEP-2.1"
+            }
+          ],
+          "source_document": "3_Restoration_Cost_Register.docx",
+          "source_evidence": "Line 1: Outstanding occupancy installment \u2014 $1,725.00",
+          "source_index": 0,
+          "source_page": 1,
+          "status": "covered"
+        },
+        {
+          "approved_amount": 950.0,
+          "category": "unit_restoration",
+          "citations": [
+            {
+              "clause_id": "OEP-2.3",
+              "heading": "Part B \u2014 premises restoration",
+              "quote": "Part B includes reasonable restoration of direct physical change beyond normal aging or ordinary turnover when an acceptable completed-work record separately states the work and charge.",
+              "source_page": 2
+            },
+            {
+              "clause_id": "OEP-3.4",
+              "heading": "Restoration evidence",
+              "quote": "A restoration line requires a paid record or executed work order that itemizes completed work and cost. An estimate, missing record, unclear record, or unsupported specialized cleaning need is unresolved.",
+              "source_page": 3
+            }
+          ],
+          "claimed_amount": 1284.0,
+          "covered_amount": 1284.0,
+          "description": "Entry door slab and frame restoration",
+          "excluded_amount": 0.0,
+          "held_amount": 0.0,
+          "rationale": "The source line satisfies the cited policy requirements.",
+          "rule_trace": [
+            {
+              "adjustment_amount": 0.0,
+              "detail": "No exclusion, hold, offset, or valuation reduction applies.",
+              "evidence": [
+                "3_Restoration_Cost_Register.docx:page:1:line:2"
+              ],
+              "input_amount": 1284.0,
+              "outcome": "applied",
+              "output_amount": 1284.0,
+              "rule_id": "OEP-2.3"
+            }
+          ],
+          "source_document": "3_Restoration_Cost_Register.docx",
+          "source_evidence": "Line 2: Entry door slab and frame restoration \u2014 $1,284.00",
+          "source_index": 1,
+          "source_page": 1,
+          "status": "covered"
+        },
+        {
+          "approved_amount": 0.0,
+          "category": "reletting_gap",
+          "citations": [
+            {
+              "clause_id": "OEP-2.2",
+              "heading": "Part A \u2014 reletting gap",
+              "quote": "Part A includes the rounded daily occupancy value for supported days beginning after possession return and ending at the earliest ready cutoff, replacement occupancy, or thirtieth calendar day after return.",
+              "source_page": 2
+            },
+            {
+              "clause_id": "OEP-3.3",
+              "heading": "Journal evidence",
+              "quote": "An occupancy balance or gap requires a tenancy journal identifying the tenancy, scheduled charge, debits, credits, reversals, and recoveries through closeout; an unexplained aggregate or code is unresolved.",
+              "source_page": 3
+            },
+            {
+              "clause_id": "OEP-4.1",
+              "heading": "Ordered calculation",
+              "quote": "Reconcile sources, classify lines, remove exclusions and duplicates, preserve unsupported values, apply service and interval boundaries, apply credits and recoveries once, sum eligible values, and finally apply the certificate limit.",
+              "source_page": 4
+            }
+          ],
+          "claimed_amount": 412.0,
+          "covered_amount": 412.0,
+          "description": "Reletting interval \u2014 4 days at $103.00 per day",
+          "excluded_amount": 0.0,
+          "held_amount": 0.0,
+          "rationale": "The source line satisfies the cited policy requirements.",
+          "rule_trace": [
+            {
+              "adjustment_amount": 0.0,
+              "detail": "No exclusion, hold, offset, or valuation reduction applies.",
+              "evidence": [
+                "3_Restoration_Cost_Register.docx:page:1:line:3"
+              ],
+              "input_amount": 412.0,
+              "outcome": "applied",
+              "output_amount": 412.0,
+              "rule_id": "OEP-2.2"
+            }
+          ],
+          "source_document": "3_Restoration_Cost_Register.docx",
+          "source_evidence": "Line 3: Reletting interval \u2014 4 days at $103.00 per day \u2014 $412.00",
+          "source_index": 2,
+          "source_page": 1,
+          "status": "covered"
+        },
+        {
+          "approved_amount": 0.0,
+          "category": "upgrade",
+          "citations": [
+            {
+              "clause_id": "OEP-3.2",
+              "heading": "Excluded amounts",
+              "quote": "Administrative charges, ordinary upkeep, standard turnover, household-owned property, elective upgrades, duplicate entries, and amounts outside a supported interval are excluded. A duplicate or recovery is removed once, not twice.",
+              "source_page": 3
+            }
+          ],
+          "claimed_amount": 193.0,
+          "covered_amount": 0.0,
+          "description": "Premium cleaning package uplift",
+          "excluded_amount": 193.0,
+          "held_amount": 0.0,
+          "rationale": "The elective uplift is excluded.",
+          "rule_trace": [
+            {
+              "adjustment_amount": 193.0,
+              "detail": "The elective uplift is excluded.",
+              "evidence": [
+                "3_Restoration_Cost_Register.docx:page:1:line:4"
+              ],
+              "input_amount": 193.0,
+              "outcome": "excluded",
+              "output_amount": 0.0,
+              "rule_id": "OEP-3.2"
+            }
+          ],
+          "source_document": "3_Restoration_Cost_Register.docx",
+          "source_evidence": "Line 4: Premium cleaning package uplift \u2014 $193.00",
+          "source_index": 3,
+          "source_page": 1,
+          "status": "excluded"
+        },
+        {
+          "approved_amount": 0.0,
+          "category": "operator_fee",
+          "citations": [
+            {
+              "clause_id": "OEP-3.2",
+              "heading": "Excluded amounts",
+              "quote": "Administrative charges, ordinary upkeep, standard turnover, household-owned property, elective upgrades, duplicate entries, and amounts outside a supported interval are excluded. A duplicate or recovery is removed once, not twice.",
+              "source_page": 3
+            }
+          ],
+          "claimed_amount": 84.0,
+          "covered_amount": 0.0,
+          "description": "Account closure fee",
+          "excluded_amount": 84.0,
+          "held_amount": 0.0,
+          "rationale": "Administrative charges are excluded.",
+          "rule_trace": [
+            {
+              "adjustment_amount": 84.0,
+              "detail": "Administrative charges are excluded.",
+              "evidence": [
+                "3_Restoration_Cost_Register.docx:page:1:line:5"
+              ],
+              "input_amount": 84.0,
+              "outcome": "excluded",
+              "output_amount": 0.0,
+              "rule_id": "OEP-3.2"
+            }
+          ],
+          "source_document": "3_Restoration_Cost_Register.docx",
+          "source_evidence": "Line 5: Account closure fee \u2014 $84.00",
+          "source_index": 4,
+          "source_page": 1,
+          "status": "excluded"
+        }
+      ],
+      "disposition": "approved",
+      "documents": [
+        {
+          "document_type": "loss_notice_and_record_index",
+          "extraction": {
+            "agreement_id": "TEN-27-9062",
+            "checklist_items": [],
+            "claim_id": "OEP-27-9062",
+            "claim_type": "occupancy_exit_protection",
+            "claimed_total": 3698.0,
+            "document_type": "loss_notice_and_record_index",
+            "ending_balance": 3698.0,
+            "event_date": "2027-02-04",
+            "evidence_assertions": [],
+            "facts": [
+              {
+                "evidence": "Claim ID OEP-27-9062",
+                "field": "claim_id",
+                "source_page": 1,
+                "value": "OEP-27-9062"
+              }
+            ],
+            "ledger_entries": [],
+            "limit_mentions": [
+              {
+                "amount": 2675.0,
+                "evidence": "Combined protection limit $2,675.00",
+                "label": "Combined protection limit",
+                "source_page": 1
+              }
+            ],
+            "participant_name": "Mei Tanaka",
+            "policy_form": "OEP-2027-SYN",
+            "protected_location": "203 Amber Passage, Brookhaven, NY 10023 \u00b7 Unit 7C",
+            "protection_end": "2027-04-13",
+            "protection_start": "2026-04-14",
+            "statement_date": "2027-02-10",
+            "submitted_lines": [],
+            "warnings": []
+          },
+          "filename": "1_Loss_Notice_and_Record_Index.docx",
+          "page_count": 2,
+          "provenance": "One-based page map from the registered candidate packet.",
+          "rendered_pages": [
+            {
+              "evidence_anchor": "1_Loss_Notice_and_Record_Index.docx:page:1",
+              "extracted_text": "Complete extracted text for 1_Loss_Notice_and_Record_Index.docx, page 1.",
+              "page_number": 1
+            },
+            {
+              "evidence_anchor": "1_Loss_Notice_and_Record_Index.docx:page:2",
+              "extracted_text": "Complete extracted text for 1_Loss_Notice_and_Record_Index.docx, page 2.",
+              "page_number": 2
+            }
+          ],
+          "sha256": "2697d50bf0eab50e27fe3892b94556911746c2347fcafb9cf111e2b47a9026c0"
+        },
+        {
+          "document_type": "tenancy_financial_journal",
+          "extraction": {
+            "agreement_id": "TEN-27-9062",
+            "checklist_items": [],
+            "claim_id": "OEP-27-9062",
+            "claim_type": "occupancy_exit_protection",
+            "claimed_total": 3698.0,
+            "document_type": "tenancy_financial_journal",
+            "ending_balance": 3698.0,
+            "event_date": "2027-02-04",
+            "evidence_assertions": [],
+            "facts": [
+              {
+                "evidence": "Claim ID OEP-27-9062",
+                "field": "claim_id",
+                "source_page": 1,
+                "value": "OEP-27-9062"
+              }
+            ],
+            "ledger_entries": [
+              {
+                "charge_amount": 1725.0,
+                "credit_amount": 0.0,
+                "description": "Outstanding occupancy installment",
+                "entry_date": "02/10/2027",
+                "entry_type": "charge",
+                "evidence": "Outstanding occupancy installment: debit $1,725.00, credit $0.00",
+                "running_balance": 1725.0,
+                "source_page": 1
+              },
+              {
+                "charge_amount": 1284.0,
+                "credit_amount": 0.0,
+                "description": "Entry door slab and frame restoration",
+                "entry_date": "02/10/2027",
+                "entry_type": "charge",
+                "evidence": "Entry door slab and frame restoration: debit $1,284.00, credit $0.00",
+                "running_balance": 3009.0,
+                "source_page": 1
+              },
+              {
+                "charge_amount": 412.0,
+                "credit_amount": 0.0,
+                "description": "Reletting interval \u2014 4 days at $103.00 per day",
+                "entry_date": "02/10/2027",
+                "entry_type": "charge",
+                "evidence": "Reletting interval \u2014 4 days at $103.00 per day: debit $412.00, credit $0.00",
+                "running_balance": 3421.0,
+                "source_page": 1
+              },
+              {
+                "charge_amount": 193.0,
+                "credit_amount": 0.0,
+                "description": "Premium cleaning package uplift",
+                "entry_date": "02/10/2027",
+                "entry_type": "charge",
+                "evidence": "Premium cleaning package uplift: debit $193.00, credit $0.00",
+                "running_balance": 3614.0,
+                "source_page": 1
+              },
+              {
+                "charge_amount": 84.0,
+                "credit_amount": 0.0,
+                "description": "Account closure fee",
+                "entry_date": "02/10/2027",
+                "entry_type": "charge",
+                "evidence": "Account closure fee: debit $84.00, credit $0.00",
+                "running_balance": 3698.0,
+                "source_page": 1
+              }
+            ],
+            "limit_mentions": [],
+            "participant_name": "Mei Tanaka",
+            "policy_form": "OEP-2027-SYN",
+            "protected_location": "203 Amber Passage, Brookhaven, NY 10023 \u00b7 Unit 7C",
+            "protection_end": "2027-04-13",
+            "protection_start": "2026-04-14",
+            "statement_date": "2027-02-10",
+            "submitted_lines": [],
+            "warnings": []
+          },
+          "filename": "2_Tenancy_Financial_Journal.docx",
+          "page_count": 1,
+          "provenance": "One-based page map from the registered candidate packet.",
+          "rendered_pages": [
+            {
+              "evidence_anchor": "2_Tenancy_Financial_Journal.docx:page:1",
+              "extracted_text": "Complete extracted text for 2_Tenancy_Financial_Journal.docx, page 1.",
+              "page_number": 1
+            }
+          ],
+          "sha256": "45a9ad1daace361e7224a93ae0d05943924c32e48a077ddbdab6f909f202f372"
+        },
+        {
+          "document_type": "restoration_cost_register",
+          "extraction": {
+            "agreement_id": "TEN-27-9062",
+            "checklist_items": [],
+            "claim_id": "OEP-27-9062",
+            "claim_type": "occupancy_exit_protection",
+            "claimed_total": 3698.0,
+            "document_type": "restoration_cost_register",
+            "ending_balance": 3698.0,
+            "event_date": "2027-02-04",
+            "evidence_assertions": [],
+            "facts": [
+              {
+                "evidence": "Claim ID OEP-27-9062",
+                "field": "claim_id",
+                "source_page": 1,
+                "value": "OEP-27-9062"
+              }
+            ],
+            "ledger_entries": [],
+            "limit_mentions": [],
+            "participant_name": "Mei Tanaka",
+            "policy_form": "OEP-2027-SYN",
+            "protected_location": "203 Amber Passage, Brookhaven, NY 10023 \u00b7 Unit 7C",
+            "protection_end": "2027-04-13",
+            "protection_start": "2026-04-14",
+            "statement_date": "2027-02-10",
+            "submitted_lines": [
+              {
+                "adjustments": [],
+                "amount": 1725.0,
+                "category_hint": "Occupancy balance",
+                "description": "Outstanding occupancy installment",
+                "documentation_status": "sufficient",
+                "evidence": "Line 1: Outstanding occupancy installment \u2014 $1,725.00",
+                "first_use_date": null,
+                "life_used_months": null,
+                "protected_period_end": null,
+                "protected_period_start": null,
+                "reference": "TJF-4103-A",
+                "source_classification": "occupancy_balance",
+                "source_index": 0,
+                "source_page": 1,
+                "stated_rate": null,
+                "useful_life_months": null
+              },
+              {
+                "adjustments": [],
+                "amount": 1284.0,
+                "category_hint": "Premises restoration",
+                "description": "Entry door slab and frame restoration",
+                "documentation_status": "sufficient",
+                "evidence": "Line 2: Entry door slab and frame restoration \u2014 $1,284.00",
+                "first_use_date": null,
+                "life_used_months": null,
+                "protected_period_end": null,
+                "protected_period_start": null,
+                "reference": "AQ-INV-4103",
+                "source_classification": "unit_restoration",
+                "source_index": 1,
+                "source_page": 1,
+                "stated_rate": null,
+                "useful_life_months": null
+              },
+              {
+                "adjustments": [],
+                "amount": 412.0,
+                "category_hint": "Reletting gap",
+                "description": "Reletting interval \u2014 4 days at $103.00 per day",
+                "documentation_status": "sufficient",
+                "evidence": "Line 3: Reletting interval \u2014 4 days at $103.00 per day \u2014 $412.00",
+                "first_use_date": null,
+                "life_used_months": null,
+                "protected_period_end": "2027-02-08",
+                "protected_period_start": "2027-02-05",
+                "reference": "TJF-4103-G",
+                "source_classification": "reletting_gap",
+                "source_index": 2,
+                "source_page": 1,
+                "stated_rate": 103.0,
+                "useful_life_months": null
+              },
+              {
+                "adjustments": [],
+                "amount": 193.0,
+                "category_hint": "Upgrade or elective improvement",
+                "description": "Premium cleaning package uplift",
+                "documentation_status": "not_applicable",
+                "evidence": "Line 4: Premium cleaning package uplift \u2014 $193.00",
+                "first_use_date": null,
+                "life_used_months": null,
+                "protected_period_end": null,
+                "protected_period_start": null,
+                "reference": null,
+                "source_classification": "upgrade",
+                "source_index": 3,
+                "source_page": 1,
+                "stated_rate": null,
+                "useful_life_months": null
+              },
+              {
+                "adjustments": [],
+                "amount": 84.0,
+                "category_hint": "Fee or service charge",
+                "description": "Account closure fee",
+                "documentation_status": "not_applicable",
+                "evidence": "Line 5: Account closure fee \u2014 $84.00",
+                "first_use_date": null,
+                "life_used_months": null,
+                "protected_period_end": null,
+                "protected_period_start": null,
+                "reference": null,
+                "source_classification": "operator_fee",
+                "source_index": 4,
+                "source_page": 1,
+                "stated_rate": null,
+                "useful_life_months": null
+              }
+            ],
+            "warnings": []
+          },
+          "filename": "3_Restoration_Cost_Register.docx",
+          "page_count": 2,
+          "provenance": "One-based page map from the registered candidate packet.",
+          "rendered_pages": [
+            {
+              "evidence_anchor": "3_Restoration_Cost_Register.docx:page:1",
+              "extracted_text": "Complete extracted text for 3_Restoration_Cost_Register.docx, page 1.",
+              "page_number": 1
+            },
+            {
+              "evidence_anchor": "3_Restoration_Cost_Register.docx:page:2",
+              "extracted_text": "Complete extracted text for 3_Restoration_Cost_Register.docx, page 2.",
+              "page_number": 2
+            }
+          ],
+          "sha256": "0d4ac0edc723c7928f6d33164cc12c4bdf7ac2e020f75adfe5c30170f36178b7"
+        },
+        {
+          "document_type": "covered_tenancy_certificate",
+          "extraction": {
+            "agreement_id": "TEN-27-9062",
+            "checklist_items": [],
+            "claim_id": "OEP-27-9062",
+            "claim_type": "occupancy_exit_protection",
+            "claimed_total": 3698.0,
+            "document_type": "covered_tenancy_certificate",
+            "ending_balance": 3698.0,
+            "event_date": "2027-02-04",
+            "evidence_assertions": [],
+            "facts": [
+              {
+                "evidence": "Claim ID OEP-27-9062",
+                "field": "claim_id",
+                "source_page": 1,
+                "value": "OEP-27-9062"
+              }
+            ],
+            "ledger_entries": [],
+            "limit_mentions": [
+              {
+                "amount": 2675.0,
+                "evidence": "Combined protection limit $2,675.00",
+                "label": "Combined protection limit",
+                "source_page": 1
+              }
+            ],
+            "participant_name": "Mei Tanaka",
+            "policy_form": "OEP-2027-SYN",
+            "protected_location": "203 Amber Passage, Brookhaven, NY 10023 \u00b7 Unit 7C",
+            "protection_end": "2027-04-13",
+            "protection_start": "2026-04-14",
+            "statement_date": "2027-02-10",
+            "submitted_lines": [],
+            "warnings": []
+          },
+          "filename": "4_Covered_Tenancy_Certificate.docx",
+          "page_count": 4,
+          "provenance": "One-based page map from the registered candidate packet.",
+          "rendered_pages": [
+            {
+              "evidence_anchor": "4_Covered_Tenancy_Certificate.docx:page:1",
+              "extracted_text": "Complete extracted text for 4_Covered_Tenancy_Certificate.docx, page 1.",
+              "page_number": 1
+            },
+            {
+              "evidence_anchor": "4_Covered_Tenancy_Certificate.docx:page:2",
+              "extracted_text": "Complete extracted text for 4_Covered_Tenancy_Certificate.docx, page 2.",
+              "page_number": 2
+            },
+            {
+              "evidence_anchor": "4_Covered_Tenancy_Certificate.docx:page:3",
+              "extracted_text": "Complete extracted text for 4_Covered_Tenancy_Certificate.docx, page 3.",
+              "page_number": 3
+            },
+            {
+              "evidence_anchor": "4_Covered_Tenancy_Certificate.docx:page:4",
+              "extracted_text": "Complete extracted text for 4_Covered_Tenancy_Certificate.docx, page 4.",
+              "page_number": 4
+            }
+          ],
+          "sha256": "69b09b7aa904ef1b1e8356379ddec6a1287ff66c84beb29c1e0859d833ebae1c"
+        }
+      ],
+      "excluded_amount": 277.0,
+      "gate": {
+        "checks": [
+          {
+            "evidence": [
+              "Registered sources processed deterministically verified for OEP-27-9062."
+            ],
+            "hard_fail": true,
+            "id": "source_integrity",
+            "label": "Registered sources processed",
+            "passed": true,
+            "weight": 20
+          },
+          {
+            "evidence": [
+              "Material facts reconciled deterministically verified for OEP-27-9062."
+            ],
+            "hard_fail": true,
+            "id": "reconciliation",
+            "label": "Material facts reconciled",
+            "passed": true,
+            "weight": 25
+          },
+          {
+            "evidence": [
+              "Decisions have policy support deterministically verified for OEP-27-9062."
+            ],
+            "hard_fail": true,
+            "id": "policy_support",
+            "label": "Decisions have policy support",
+            "passed": true,
+            "weight": 20
+          },
+          {
+            "evidence": [
+              "Amounts independently reconcile deterministically verified for OEP-27-9062."
+            ],
+            "hard_fail": true,
+            "id": "amount_safety",
+            "label": "Amounts independently reconcile",
+            "passed": true,
+            "weight": 25
+          },
+          {
+            "evidence": [
+              "No unresolved material amount deterministically verified for OEP-27-9062."
+            ],
+            "hard_fail": false,
+            "id": "unresolved_evidence",
+            "label": "No unresolved material amount",
+            "passed": true,
+            "weight": 10
+          }
+        ],
+        "eligible_for_stp": true,
+        "hard_failure": false,
+        "route": "auto_approve",
+        "route_evidence": [
+          "All deterministic checks passed without a held amount."
+        ],
+        "score": 100,
+        "threshold": 90
+      },
+      "held_amount": 0.0,
+      "math_audit": {
+        "allocation_order": "Allocate safely across lines and reconcile the line total to the case total.",
+        "approved_lines_total": 2675.0,
+        "cap_method": "Apply the selected policy limit after reconciling covered amounts.",
+        "case_identity_passed": true,
+        "currency": "USD",
+        "line_identity_passed": true,
+        "preliminary_payable_amount": 2675.0,
+        "reconciliation_evidence": [
+          "$3,698.00 = $3,421.00 + $277.00 + $0.00"
+        ],
+        "rounding_mode": "ROUND_HALF_UP"
+      },
+      "model_calls": [],
+      "outcome_summary": "$3,421.00 is covered, $0.00 is held, and the deterministic route is auto_approve.",
+      "policy_audit": {
+        "extraction": {
+          "clauses": [
+            {
+              "clause_id": "OEP-1.1",
+              "evidence": "The program determines an eligible amount only for a protected residential tenancy and only after every source line has been classified, evidenced, valued, and reconciled under this form.",
+              "heading": "Coverage agreement",
+              "source_page": 1,
+              "text": "The program determines an eligible amount only for a protected residential tenancy and only after every source line has been classified, evidenced, valued, and reconciled under this form."
+            },
+            {
+              "clause_id": "OEP-1.2",
+              "evidence": "A covered tenancy is the executed occupancy arrangement identified on the certificate when the possession-return event occurs during the stated certificate period.",
+              "heading": "Covered tenancy",
+              "source_page": 1,
+              "text": "A covered tenancy is the executed occupancy arrangement identified on the certificate when the possession-return event occurs during the stated certificate period."
+            },
+            {
+              "clause_id": "OEP-1.3",
+              "evidence": "Source line means one separately presented charge. Ready cutoff means the earliest supported date on which the premises could accept a replacement household. Unresolved amount means a value that lacks a determinative source fact.",
+              "heading": "Defined terms",
+              "source_page": 1,
+              "text": "Source line means one separately presented charge. Ready cutoff means the earliest supported date on which the premises could accept a replacement household. Unresolved amount means a value that lacks a determinative source fact."
+            },
+            {
+              "clause_id": "OEP-2.1",
+              "evidence": "Part A includes a scheduled occupancy amount remaining at possession return after attributable payments, concessions, reversals, credits, and recoveries are applied once.",
+              "heading": "Part A \u2014 occupancy balance",
+              "source_page": 2,
+              "text": "Part A includes a scheduled occupancy amount remaining at possession return after attributable payments, concessions, reversals, credits, and recoveries are applied once."
+            },
+            {
+              "clause_id": "OEP-2.2",
+              "evidence": "Part A includes the rounded daily occupancy value for supported days beginning after possession return and ending at the earliest ready cutoff, replacement occupancy, or thirtieth calendar day after return.",
+              "heading": "Part A \u2014 reletting gap",
+              "source_page": 2,
+              "text": "Part A includes the rounded daily occupancy value for supported days beginning after possession return and ending at the earliest ready cutoff, replacement occupancy, or thirtieth calendar day after return."
+            },
+            {
+              "clause_id": "OEP-2.3",
+              "evidence": "Part B includes reasonable restoration of direct physical change beyond normal aging or ordinary turnover when an acceptable completed-work record separately states the work and charge.",
+              "heading": "Part B \u2014 premises restoration",
+              "source_page": 2,
+              "text": "Part B includes reasonable restoration of direct physical change beyond normal aging or ordinary turnover when an acceptable completed-work record separately states the work and charge."
+            },
+            {
+              "clause_id": "OEP-2.4",
+              "evidence": "Eligible Part A and Part B values share the single certificate limit, which is applied after line-level classification and valuation and never operates as evidence of loss.",
+              "heading": "Combined limit",
+              "source_page": 2,
+              "text": "Eligible Part A and Part B values share the single certificate limit, which is applied after line-level classification and valuation and never operates as evidence of loss."
+            },
+            {
+              "clause_id": "OEP-3.1",
+              "evidence": "Each submitted source line must receive one normalized classification. A coded, lump-sum, or otherwise indeterminate line remains unresolved until its nature can be established.",
+              "heading": "Classification rule",
+              "source_page": 2,
+              "text": "Each submitted source line must receive one normalized classification. A coded, lump-sum, or otherwise indeterminate line remains unresolved until its nature can be established."
+            },
+            {
+              "clause_id": "OEP-3.2",
+              "evidence": "Administrative charges, ordinary upkeep, standard turnover, household-owned property, elective upgrades, duplicate entries, and amounts outside a supported interval are excluded. A duplicate or recovery is removed once, not twice.",
+              "heading": "Excluded amounts",
+              "source_page": 3,
+              "text": "Administrative charges, ordinary upkeep, standard turnover, household-owned property, elective upgrades, duplicate entries, and amounts outside a supported interval are excluded. A duplicate or recovery is removed once, not twice."
+            },
+            {
+              "clause_id": "OEP-3.3",
+              "evidence": "An occupancy balance or gap requires a tenancy journal identifying the tenancy, scheduled charge, debits, credits, reversals, and recoveries through closeout; an unexplained aggregate or code is unresolved.",
+              "heading": "Journal evidence",
+              "source_page": 3,
+              "text": "An occupancy balance or gap requires a tenancy journal identifying the tenancy, scheduled charge, debits, credits, reversals, and recoveries through closeout; an unexplained aggregate or code is unresolved."
+            },
+            {
+              "clause_id": "OEP-3.4",
+              "evidence": "A restoration line requires a paid record or executed work order that itemizes completed work and cost. An estimate, missing record, unclear record, or unsupported specialized cleaning need is unresolved.",
+              "heading": "Restoration evidence",
+              "source_page": 3,
+              "text": "A restoration line requires a paid record or executed work order that itemizes completed work and cost. An estimate, missing record, unclear record, or unsupported specialized cleaning need is unresolved."
+            },
+            {
+              "clause_id": "OEP-3.5",
+              "evidence": "A material disagreement among identifiers, dates, amounts, evidence status, or source facts must be retained with provenance; a value-changing disagreement remains unresolved unless a governing source resolves it.",
+              "heading": "Conflict rule",
+              "source_page": 3,
+              "text": "A material disagreement among identifiers, dates, amounts, evidence status, or source facts must be retained with provenance; a value-changing disagreement remains unresolved unless a governing source resolves it."
+            },
+            {
+              "clause_id": "OEP-4.1",
+              "evidence": "Reconcile sources, classify lines, remove exclusions and duplicates, preserve unsupported values, apply service and interval boundaries, apply credits and recoveries once, sum eligible values, and finally apply the certificate limit.",
+              "heading": "Ordered calculation",
+              "source_page": 4,
+              "text": "Reconcile sources, classify lines, remove exclusions and duplicates, preserve unsupported values, apply service and interval boundaries, apply credits and recoveries once, sum eligible values, and finally apply the certificate limit."
+            },
+            {
+              "clause_id": "OEP-4.2",
+              "evidence": "For a scheduled component, eligible service value equals gross cost multiplied by remaining whole months divided by scheduled months, rounded half up to cents; an expired component has no remaining service value.",
+              "heading": "Remaining service",
+              "source_page": 4,
+              "text": "For a scheduled component, eligible service value equals gross cost multiplied by remaining whole months divided by scheduled months, rounded half up to cents; an expired component has no remaining service value."
+            },
+            {
+              "clause_id": "OEP-3.6",
+              "evidence": "The schedule assigns 120 months to floor finish, countertop panel, vanity, and cabinet front; 96 months to window treatment and appliance panel; 84 months to carpet; and 72 months to a door closer.",
+              "heading": "Component service schedule",
+              "source_page": 4,
+              "text": "The schedule assigns 120 months to floor finish, countertop panel, vanity, and cabinet front; 96 months to window treatment and appliance panel; 84 months to carpet; and 72 months to a door closer."
+            },
+            {
+              "clause_id": "OEP-5.1",
+              "evidence": "Notice is due within 105 days after possession return. The determination must retain source-page provenance, citations, line mathematics, unresolved values, verification and routing rationale, and a preview that performs no external write.",
+              "heading": "Notice and determination record",
+              "source_page": 4,
+              "text": "Notice is due within 105 days after possession return. The determination must retain source-page provenance, citations, line mathematics, unresolved values, verification and routing rationale, and a preview that performs no external write."
+            }
+          ],
+          "policy_form": "OEP-2027-SYN",
+          "warnings": []
+        },
+        "filename": "00_Master_Form_OEP-2027-SYN.docx",
+        "page_count": 4,
+        "provenance": "One-based page map from the registered master policy.",
+        "rendered_pages": [
+          {
+            "evidence_anchor": "00_Master_Form_OEP-2027-SYN.docx:page:1",
+            "extracted_text": "Complete extracted policy text for page 1.",
+            "page_number": 1
+          },
+          {
+            "evidence_anchor": "00_Master_Form_OEP-2027-SYN.docx:page:2",
+            "extracted_text": "Complete extracted policy text for page 2.",
+            "page_number": 2
+          },
+          {
+            "evidence_anchor": "00_Master_Form_OEP-2027-SYN.docx:page:3",
+            "extracted_text": "Complete extracted policy text for page 3.",
+            "page_number": 3
+          },
+          {
+            "evidence_anchor": "00_Master_Form_OEP-2027-SYN.docx:page:4",
+            "extracted_text": "Complete extracted policy text for page 4.",
+            "page_number": 4
+          }
+        ],
+        "sha256": "175e785bf12407d5efacee83396d86212f399fd54c39911325af5daa85f872d8"
+      },
+      "policy_form": "OEP-2027-SYN",
+      "policy_limit": 2675.0,
+      "retrieved_policy": [
+        {
+          "clause_id": "OEP-2.1",
+          "heading": "Part A \u2014 occupancy balance",
+          "lexical_boost": 0.0,
+          "method": "deterministic clause lookup",
+          "query": "Policy support for OEP-2.1",
+          "score": 1.0,
+          "similarity": 1.0,
+          "source_page": 2,
+          "text": "Part A includes a scheduled occupancy amount remaining at possession return after attributable payments, concessions, reversals, credits, and recoveries are applied once."
+        },
+        {
+          "clause_id": "OEP-2.2",
+          "heading": "Part A \u2014 reletting gap",
+          "lexical_boost": 0.0,
+          "method": "deterministic clause lookup",
+          "query": "Policy support for OEP-2.2",
+          "score": 1.0,
+          "similarity": 1.0,
+          "source_page": 2,
+          "text": "Part A includes the rounded daily occupancy value for supported days beginning after possession return and ending at the earliest ready cutoff, replacement occupancy, or thirtieth calendar day after return."
+        },
+        {
+          "clause_id": "OEP-2.3",
+          "heading": "Part B \u2014 premises restoration",
+          "lexical_boost": 0.0,
+          "method": "deterministic clause lookup",
+          "query": "Policy support for OEP-2.3",
+          "score": 1.0,
+          "similarity": 1.0,
+          "source_page": 2,
+          "text": "Part B includes reasonable restoration of direct physical change beyond normal aging or ordinary turnover when an acceptable completed-work record separately states the work and charge."
+        },
+        {
+          "clause_id": "OEP-3.2",
+          "heading": "Excluded amounts",
+          "lexical_boost": 0.0,
+          "method": "deterministic clause lookup",
+          "query": "Policy support for OEP-3.2",
+          "score": 1.0,
+          "similarity": 1.0,
+          "source_page": 3,
+          "text": "Administrative charges, ordinary upkeep, standard turnover, household-owned property, elective upgrades, duplicate entries, and amounts outside a supported interval are excluded. A duplicate or recovery is removed once, not twice."
+        },
+        {
+          "clause_id": "OEP-3.3",
+          "heading": "Journal evidence",
+          "lexical_boost": 0.0,
+          "method": "deterministic clause lookup",
+          "query": "Policy support for OEP-3.3",
+          "score": 1.0,
+          "similarity": 1.0,
+          "source_page": 3,
+          "text": "An occupancy balance or gap requires a tenancy journal identifying the tenancy, scheduled charge, debits, credits, reversals, and recoveries through closeout; an unexplained aggregate or code is unresolved."
+        },
+        {
+          "clause_id": "OEP-3.4",
+          "heading": "Restoration evidence",
+          "lexical_boost": 0.0,
+          "method": "deterministic clause lookup",
+          "query": "Policy support for OEP-3.4",
+          "score": 1.0,
+          "similarity": 1.0,
+          "source_page": 3,
+          "text": "A restoration line requires a paid record or executed work order that itemizes completed work and cost. An estimate, missing record, unclear record, or unsupported specialized cleaning need is unresolved."
+        },
+        {
+          "clause_id": "OEP-4.1",
+          "heading": "Ordered calculation",
+          "lexical_boost": 0.0,
+          "method": "deterministic clause lookup",
+          "query": "Policy support for OEP-4.1",
+          "score": 1.0,
+          "similarity": 1.0,
+          "source_page": 4,
+          "text": "Reconcile sources, classify lines, remove exclusions and duplicates, preserve unsupported values, apply service and interval boundaries, apply credits and recoveries once, sum eligible values, and finally apply the certificate limit."
+        }
+      ],
+      "run_id": "labeled-example-OEP-27-9062",
+      "source_conflicts": [],
+      "tool_calls": [],
+      "warnings": [],
+      "writeback_preview": {
+        "approved_amount": 2675.0,
+        "automation_quality_score": 100,
+        "case_number": 3,
+        "claim_id": "OEP-27-9062",
+        "claim_type": "occupancy_exit_protection",
+        "claimed_amount": 3698.0,
+        "covered_amount": 3421.0,
+        "destination": "training_claims_preview",
+        "excluded_amount": 277.0,
+        "external_write_performed": false,
+        "held_amount": 0.0,
+        "payment_action": "preview_only",
+        "policy_citations": [
+          "OEP-2.1",
+          "OEP-2.2",
+          "OEP-2.3",
+          "OEP-3.2",
+          "OEP-3.3",
+          "OEP-3.4",
+          "OEP-4.1"
+        ],
+        "policy_limit": 2675.0,
+        "route": "auto_approve",
+        "ruleset": "OEP-2027-SYN",
+        "simulated": true,
+        "status": "approved"
+      }
+    }
+  ]
+}

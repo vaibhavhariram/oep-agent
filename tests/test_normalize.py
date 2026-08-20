@@ -13,6 +13,7 @@ import pytest
 from oep.extraction.normalize import (
     CATEGORY_MAP,
     RECORD_STATUS_MAP,
+    _parse_gap_facts,
     date_to_iso,
     date_to_mmddyyyy,
     evidence_fact,
@@ -190,3 +191,24 @@ class TestEvidenceAgainstExamples:
     def test_fact_9062(self) -> None:
         expected = "Claim ID OEP-27-9062"
         assert evidence_fact("OEP-27-9062") == expected
+
+
+# ===================================================================
+# Gap-fact date parsing (_parse_gap_facts)
+# ===================================================================
+
+
+class TestGapFactDateFormats:
+    def test_iso_dates(self) -> None:
+        fact = "Gap: 2027-01-24 \u2013 2027-02-13 at $73.00/day"
+        result = _parse_gap_facts(fact)
+        assert result["protected_period_start"] == "2027-01-24"
+        assert result["protected_period_end"] == "2027-02-13"
+        assert result["stated_rate"] == 73.0
+
+    def test_mmddyyyy_dates(self) -> None:
+        fact = "Gap: 01/24/2027 \u2013 02/13/2027 at $73.00/day"
+        result = _parse_gap_facts(fact)
+        assert result["protected_period_start"] == "2027-01-24"
+        assert result["protected_period_end"] == "2027-02-13"
+        assert result["stated_rate"] == 73.0

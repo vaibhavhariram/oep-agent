@@ -33,6 +33,7 @@ from oep.extraction.schemas import (
     RawSourceRegister,
 )
 from oep.extraction.table_parser import (
+    parse_factual_observations,
     parse_journal,
     parse_record_register,
     parse_source_lines,
@@ -123,7 +124,14 @@ def _build_raw_from_parser(claim_id: str, data_dir: Path) -> dict:
             }
             for rr in reg_rows
         ],
-        factual_observations=[],
+        factual_observations=[
+            {
+                "observation": fo.observation,
+                "recorded_fact": fo.recorded_fact,
+                "source_page": fo.source_page,
+            }
+            for fo in parse_factual_observations(pkt.documents[2].pages)
+        ],
     )
 
     # --- Certificate: extract from page text ---

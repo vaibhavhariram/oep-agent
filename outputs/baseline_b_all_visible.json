@@ -1,0 +1,202 @@
+[1/10] Baseline B OEP-27-9062 ...
+  ✗ 6 errors
+[2/10] Baseline B OEP-27-9548 ...
+  ✗ 5 errors
+[3/10] Baseline B OEP-27-1087 ...
+  ✗ 5 errors
+[4/10] Baseline B OEP-27-2849 ...
+  ✗ 4 errors
+[5/10] Baseline B OEP-27-8150 ...
+  ✗ 6 errors
+[6/10] Baseline B OEP-27-4706 ...
+  ✗ 6 errors
+[7/10] Baseline B OEP-27-6795 ...
+  ✗ 6 errors
+[8/10] Baseline B OEP-27-2146 ...
+  ✗ 5 errors
+[9/10] Baseline B OEP-27-4358 ...
+  ✗ 4 errors
+[10/10] Baseline B OEP-27-5804 ...
+  ✗ 6 errors
+{
+  "metadata": {
+    "baseline_type": "reduced_schema_adjudication",
+    "total_claims": 10,
+    "successful": 0,
+    "failed": 10
+  },
+  "results": [
+    {
+      "claim_id": "OEP-27-9062",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 10205,
+        "input_tokens": 4503,
+        "output_tokens": 1179,
+        "total_tokens": 5682
+      }
+    },
+    {
+      "claim_id": "OEP-27-9548",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 7895,
+        "input_tokens": 4391,
+        "output_tokens": 1049,
+        "total_tokens": 5440
+      }
+    },
+    {
+      "claim_id": "OEP-27-1087",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 7228,
+        "input_tokens": 4411,
+        "output_tokens": 983,
+        "total_tokens": 5394
+      }
+    },
+    {
+      "claim_id": "OEP-27-2849",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 9053,
+        "input_tokens": 4367,
+        "output_tokens": 882,
+        "total_tokens": 5249
+      }
+    },
+    {
+      "claim_id": "OEP-27-8150",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 10028,
+        "input_tokens": 4490,
+        "output_tokens": 1265,
+        "total_tokens": 5755
+      }
+    },
+    {
+      "claim_id": "OEP-27-4706",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 13050,
+        "input_tokens": 4500,
+        "output_tokens": 1669,
+        "total_tokens": 6169
+      }
+    },
+    {
+      "claim_id": "OEP-27-6795",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 17522,
+        "input_tokens": 4597,
+        "output_tokens": 1615,
+        "total_tokens": 6212
+      }
+    },
+    {
+      "claim_id": "OEP-27-2146",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 13755,
+        "input_tokens": 4363,
+        "output_tokens": 1301,
+        "total_tokens": 5664
+      }
+    },
+    {
+      "claim_id": "OEP-27-4358",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 6371,
+        "input_tokens": 4271,
+        "output_tokens": 723,
+        "total_tokens": 4994
+      }
+    },
+    {
+      "claim_id": "OEP-27-5804",
+      "success": false,
+      "validation_errors": [
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)",
+        "Additional properties are not allowed ('rationale' was unexpected)"
+      ],
+      "result": null,
+      "model_call": {
+        "purpose": "baseline_b_adjudicate",
+        "duration_ms": 10355,
+        "input_tokens": 4530,
+        "output_tokens": 1295,
+        "total_tokens": 5825
+      }
+    }
+  ]
+}
+
+Baseline B: 0/10 schema-valid.

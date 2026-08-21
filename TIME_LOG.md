@@ -33,33 +33,40 @@
 - Structural diff harness: all 3 labeled examples match normalized output exactly
 - 68 tests total, all green
 
-## 2026-08-19 (Day 3 - Rules Engine + Gate + Assembly)
+## 2026-08-19 (Day 3 — Reconciliation, rules engine, gate, end-to-end)
 
-| Date | Start | Stop | Duration | What |
-|------|-------|------|----------|------|
-| 2026-08-19 | — | — | TBD | Day 3 build: rules engine (7 stages), gate (5 checks), assembly, reconciliation, golden set, baselines, eval harness |
+| Date | Duration | What |
+|------|----------|------|
+| 2026-08-19 | ~1.0 hr | Daily sync; dev-case analysis — read all seven unlabeled registers and journals, identified planted behaviors (depreciation, gap trimming, duplicate-with-reversal) |
+| 2026-08-19 | ~1.5 hr | Reconciliation module: six cross-document checks, typed conflicts, 51 tests. Caught and corrected a totals check that passed on all labeled cases but breaks on any claim with credits |
+| 2026-08-19 | ~2.5 hr | Rules engine: seven stages mapped to OEP-4.1. Hand-derived depreciation, gap-boundary, and cap-allocation values from the policy to use as acceptance tests |
+| 2026-08-19 | ~1.5 hr | Gate, routing, end-to-end assembly; clause store; schema validation before output; 216 tests green |
+| 2026-08-19 | ~0.5 hr | Review, self-audit, commits |
 
-**Day 3 deliverables completed:**
-- 7-stage rules engine: classify, exclude, hold, value (service-life depreciation), gap (daily rate × eligible days), credits/recoveries, cap
-- Reconciliation module: 6 cross-document checks (identifier chain, limits, totals, journal-register alignment, coverage window, notice deadline)
-- Gate with 5 weighted deterministic checks and routing logic
-- Full Result assembly (25 required fields) with schema validation
-- Baseline A and B adjudicators (single-call, no rules engine)
-- Golden set: 7 candidate-authored goldens with reasoning files
-- Eval harness with payment accuracy, route accuracy, per-line scoring
-- 218 tests total, all green
+**Day 3 total: ~7.0 hr**
 
-## 2026-08-20 (Day 4 - Remediation + Documentation)
+## 2026-08-20 (Day 4 — Evaluation, adversarial testing, audit, submission)
 
-| Date | Start | Stop | Duration | What |
-|------|-------|------|----------|------|
-| 2026-08-20 | — | — | TBD | Day 4 remediation: golden corrections, vacuous zeros fix, unified golden loader, adversarial test suite, artifact regeneration, documentation |
+| Date | Duration | What |
+|------|----------|------|
+| 2026-08-20 | ~1.0 hr | Daily sync; planning the evaluation phase |
+| 2026-08-20 | ~1.5 hr | Two baseline variants (full schema and reduced decision core), run across all ten claims; failure-mode analysis |
+| 2026-08-20 | ~2.0 hr | Golden dataset: hand-adjudicated seven unlabeled claims against the policy, wrote per-claim reasoning documents citing clauses |
+| 2026-08-20 | ~1.0 hr | Eval harness and scorecard; payment-accuracy metrics; divergence analysis with per-case verdicts |
+| 2026-08-20 | ~1.0 hr | Adversarial gate-check suite |
+| 2026-08-20 | ~1.0 hr | Full repository audit, remediation, artifact regeneration |
+| 2026-08-20 | ~1.0 hr | Write-ups, disclosure, fresh-clone verification, submission |
 
-**Day 4 deliverables completed:**
-- Golden corrections: verbatim descriptions for OEP-27-4706 and OEP-27-8150, category naming fix (ordinary_upkeep)
-- Vacuous zeros: FALSE AUTO-APPROVES and Invalid citations render N/A when no valid outputs
-- Unified golden loader: all 10 goldens scored for all accuracy metrics, with supplied-only (3/3) breakout
-- Adversarial test suite: 12 tests + 1 xfail across 7 test files targeting all 5 gate checks
-- Regenerated all artifacts: pipeline, baselines, scorecard
-- Documentation: ARCHITECTURE.md, ERROR_ANALYSIS.md, DISCLOSURE.md, TIME_LOG.md updates
-- 231 tests total (230 passed, 1 xfailed)
+**Day 4 total: ~8.5 hr**
+
+---
+
+## Total: 20.0 hours (capped)
+
+Actual time worked exceeded the cap. Logged at 20 hours per the trial terms.
+
+This log includes work that does not appear in commit history: reading the
+policy and claim documents, hand-deriving expected values from the clauses,
+reviewing implementation plans before execution, the daily syncs, and the
+final audit pass. Earlier entries for Days 1 and 2 recorded only
+commit-adjacent time and understate the actual hours.

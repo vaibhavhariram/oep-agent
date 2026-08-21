@@ -18,7 +18,7 @@ from pathlib import Path
 
 import pytest
 
-from oep.assembly import _strip_none_artifacts
+from oep.assembly import _strip_none_artifacts, result_to_dict
 from oep.extraction.normalize import normalize_all, parse_date
 from oep.gate import build_gate, determine_disposition_from_rules
 from oep.ingest.packet import assemble_packet
@@ -231,7 +231,7 @@ def test_schema_valid(data_dir: Path, claim_id: str) -> None:
         ),
     )
 
-    output = _strip_none_artifacts({"results": [result.model_dump(mode="json")]})
+    output = result_to_dict(result)
     errors = validate_against_schema(output)
     assert errors == [], f"Schema validation errors:\n" + "\n".join(errors[:10])
 

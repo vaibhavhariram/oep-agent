@@ -32,3 +32,34 @@
 - CLI `oep extract` command with cross-check and normalization
 - Structural diff harness: all 3 labeled examples match normalized output exactly
 - 68 tests total, all green
+
+## 2026-08-19 (Day 3 - Rules Engine + Gate + Assembly)
+
+| Date | Start | Stop | Duration | What |
+|------|-------|------|----------|------|
+| 2026-08-19 | — | — | TBD | Day 3 build: rules engine (7 stages), gate (5 checks), assembly, reconciliation, golden set, baselines, eval harness |
+
+**Day 3 deliverables completed:**
+- 7-stage rules engine: classify, exclude, hold, value (service-life depreciation), gap (daily rate × eligible days), credits/recoveries, cap
+- Reconciliation module: 6 cross-document checks (identifier chain, limits, totals, journal-register alignment, coverage window, notice deadline)
+- Gate with 5 weighted deterministic checks and routing logic
+- Full Result assembly (25 required fields) with schema validation
+- Baseline A and B adjudicators (single-call, no rules engine)
+- Golden set: 7 candidate-authored goldens with reasoning files
+- Eval harness with payment accuracy, route accuracy, per-line scoring
+- 218 tests total, all green
+
+## 2026-08-20 (Day 4 - Remediation + Documentation)
+
+| Date | Start | Stop | Duration | What |
+|------|-------|------|----------|------|
+| 2026-08-20 | — | — | TBD | Day 4 remediation: golden corrections, vacuous zeros fix, unified golden loader, adversarial test suite, artifact regeneration, documentation |
+
+**Day 4 deliverables completed:**
+- Golden corrections: verbatim descriptions for OEP-27-4706 and OEP-27-8150, category naming fix (ordinary_upkeep)
+- Vacuous zeros: FALSE AUTO-APPROVES and Invalid citations render N/A when no valid outputs
+- Unified golden loader: all 10 goldens scored for all accuracy metrics, with supplied-only (3/3) breakout
+- Adversarial test suite: 12 tests + 1 xfail across 7 test files targeting all 5 gate checks
+- Regenerated all artifacts: pipeline, baselines, scorecard
+- Documentation: ARCHITECTURE.md, ERROR_ANALYSIS.md, DISCLOSURE.md, TIME_LOG.md updates
+- 231 tests total (230 passed, 1 xfailed)

@@ -57,15 +57,19 @@ oep run-all
 ## Tests
 
 ```bash
-pytest tests/ -v
+pytest tests/ eval/ -v
 ```
 
-21 tests covering:
-- **Manifest verification**: all 10 claims pass; 6 failure modes (missing file, extra file, hash mismatch, path traversal, unreadable, unknown claim)
-- **Page extraction**: correct page counts across all 40 documents, non-empty text, evidence anchor format, sequential numbering
-- **Model round-trip**: all 3 labeled examples load into Pydantic, re-serialize identically
-- **Schema validation**: all examples validate against `output_schema.json`
-- **Extra field rejection**: Pydantic models enforce `extra="forbid"`
+231 tests (230 passed, 1 xfailed) covering:
+- **Manifest verification**: all 10 claims pass; 6 failure modes
+- **Page extraction**: correct page counts, evidence anchors
+- **Model round-trip and schema validation**: all 3 labeled examples
+- **Normalization**: category mapping, status mapping, date parsing
+- **Reconciliation**: identity, limits, totals, coverage window, notice deadline
+- **Rules engine**: 7 stages with per-stage unit tests and integration tests
+- **Gate invariants**: 5 checks, weights, routing logic across all 10 claims
+- **Assembly integration**: exact-match against labeled examples, schema validation
+- **Adversarial**: 13 tests targeting all 5 gate checks (see `eval/adversarial/README.md`)
 
 ## Regenerate models
 
@@ -95,13 +99,14 @@ data/                       # trial dataset (read-only, sha256-verified)
 
 ## Current status
 
-**Day 1 complete** — ingestion layer done:
-- [x] Project setup, generated Pydantic models, manifest verification
-- [x] Page-aware docx extraction (splits on `<w:br type="page"/>`, not footers)
-- [x] Packet assembly, CLI, comprehensive tests
-- [ ] LLM extraction (Day 2)
-- [ ] Policy rules, gate, routing (Day 3)
-- [ ] Evals, error analysis, write-ups (Day 4)
+All four days complete:
+- [x] Ingestion: manifest verification, page-aware docx extraction, packet assembly
+- [x] Extraction: 4 LLM calls per claim, table parser cross-check, normalization
+- [x] Rules engine: 7 stages (classify, exclude, hold, value, gap, credits, cap)
+- [x] Gate: 5 weighted checks, routing, disposition
+- [x] Assembly: full Result with 25 fields, schema validation
+- [x] Evaluation: baselines, golden set (10 claims), scorecard
+- [x] Adversarial tests: 13 tests across 7 files targeting all gate checks
 
 ## Data
 

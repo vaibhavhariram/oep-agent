@@ -13,7 +13,7 @@
   "decision_lines": [
     {
       "source_index": 0,
-      "description": "Carpet replacement",
+      "description": "Bedroom carpet replacement",
       "category": "unit_restoration",
       "status": "excluded",
       "claimed_amount": 1075.00,
@@ -24,7 +24,7 @@
     },
     {
       "source_index": 1,
-      "description": "Window treatment replacement",
+      "description": "Living-room blind track replacement",
       "category": "unit_restoration",
       "status": "excluded",
       "claimed_amount": 438.00,
@@ -35,7 +35,7 @@
     },
     {
       "source_index": 2,
-      "description": "Life-safety work",
+      "description": "Hard-wired smoke alarm restoration",
       "category": "unit_restoration",
       "status": "covered",
       "claimed_amount": 606.00,
@@ -46,7 +46,7 @@
     },
     {
       "source_index": 3,
-      "description": "Door closer replacement",
+      "description": "Entry door closer replacement",
       "category": "unit_restoration",
       "status": "partially_covered",
       "claimed_amount": 528.00,

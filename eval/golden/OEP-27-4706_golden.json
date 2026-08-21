@@ -13,7 +13,7 @@
   "decision_lines": [
     {
       "source_index": 0,
-      "description": "Floor finish restoration",
+      "description": "Kitchen floor finish replacement",
       "category": "unit_restoration",
       "status": "partially_covered",
       "claimed_amount": 960.00,
@@ -24,7 +24,7 @@
     },
     {
       "source_index": 1,
-      "description": "Window treatment replacement",
+      "description": "Window blind rail and hardware",
       "category": "unit_restoration",
       "status": "partially_covered",
       "claimed_amount": 504.00,
@@ -35,7 +35,7 @@
     },
     {
       "source_index": 2,
-      "description": "Electrical labor",
+      "description": "Kitchen GFCI receptacle restoration",
       "category": "unit_restoration",
       "status": "covered",
       "claimed_amount": 715.00,
@@ -46,7 +46,7 @@
     },
     {
       "source_index": 3,
-      "description": "Countertop panel replacement",
+      "description": "Countertop edge panel replacement",
       "category": "unit_restoration",
       "status": "partially_covered",
       "claimed_amount": 1080.00,
@@ -58,7 +58,7 @@
     {
       "source_index": 4,
       "description": "Standard turnover cleaning",
-      "category": "standard_turnover",
+      "category": "ordinary_upkeep",
       "status": "excluded",
       "claimed_amount": 142.00,
       "covered_amount": 0.00,

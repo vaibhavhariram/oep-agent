@@ -31,6 +31,24 @@ The integration test harness (`test_assembly_integration.py`) skips `rationale`
 and `detail` fields when diffing against labeled examples, because these are
 free-text strings whose exact wording may shift without affecting correctness.
 
+## test_exact_match uses private `_strip_none_artifacts`
+
+`test_exact_match_labeled_example` in `test_assembly_integration.py` imports the
+private `_strip_none_artifacts` helper because it constructs a raw dict (not a
+full `Result` object) for comparison against labeled examples.  Refactoring it to
+build a `Result` and use the public `result_to_dict()` would risk breaking the
+single most important test in the suite for a cosmetic gain.  The second call
+site (in `test_schema_valid`) was migrated to `result_to_dict()`.
+
+## Policy support check does not verify source_page
+
+The gate's `_check_policy_support` verifies that each `rule_id` in the rule
+trace resolves to a known clause in `CLAUSE_BY_ID`, but does not compare the
+citation's `source_page` against the clause store's authoritative page number.
+A citation with the correct clause_id but wrong source_page will pass the check.
+This is documented as an xfail in
+`eval/adversarial/test_policy_support.py::test_wrong_source_page`.
+
 ## completed_at is real processing time
 
 `completed_at` records the wall-clock time when `process_claim` finishes, not a

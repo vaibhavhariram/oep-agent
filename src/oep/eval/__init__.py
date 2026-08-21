@@ -26,6 +26,11 @@ from oep import config
 from oep.models.wrappers import validate_against_schema
 from oep.policy_store import CLAUSE_BY_ID
 
+# The three supplied ground-truth examples (not candidate-authored).
+SUPPLIED_IDS: frozenset[str] = frozenset({
+    "OEP-27-1087", "OEP-27-9062", "OEP-27-9548",
+})
+
 # ---------------------------------------------------------------------------
 # Haiku 4.5 pricing (per 1M tokens)
 # ---------------------------------------------------------------------------
@@ -218,7 +223,12 @@ def _score_claim(
     has_golden = golden is not None
     has_result = system_result is not None
 
-    golden_route = golden["gate"]["route"] if has_golden else None
+    # Candidate-authored goldens have "route" at top level (flat schema);
+    # supplied goldens nest it under "gate".
+    if has_golden:
+        golden_route = golden.get("route") or golden.get("gate", {}).get("route")
+    else:
+        golden_route = None
     system_route = None
     if has_result:
         system_route = system_result.get("gate", {}).get("route")
@@ -435,6 +445,19 @@ def _aggregate(ss: SystemScore) -> dict:
     def _frac(num: int, den: int) -> str:
         return f"{num}/{den}" if den else "N/A"
 
+    # --- Supplied-only tallies (3 ground-truth claims) ---
+    sup = [c for c in claims if c.claim_id in SUPPLIED_IDS]
+    sup_golden_with_result = [c for c in sup if c.has_golden and c.has_result]
+    sup_golden_total = sum(1 for c in sup if c.has_golden)
+    sup_route_correct = sum(1 for c in sup_golden_with_result if c.route_match)
+    sup_ls_correct = sum(c.line_status_correct for c in sup)
+    sup_ls_total = sum(c.line_status_total for c in sup)
+    sup_la_exact = sum(c.line_amount_exact for c in sup)
+    sup_la_total = sum(c.line_amount_total for c in sup)
+    sup_ca_scored = [c for c in sup if c.case_amounts_exact is not None]
+    sup_ca_exact = sum(1 for c in sup_ca_scored if c.case_amounts_exact)
+    sup_ca_total = len(sup_ca_scored)
+
     return {
         "false_auto_approves": false_auto,
         "route_accuracy": _frac(route_correct, golden_total),
@@ -463,6 +486,16 @@ def _aggregate(ss: SystemScore) -> dict:
         "total_cost_usd": str(total_cost.quantize(Decimal("0.000001"))),
         "latency_per_claim_ms": avg_lat,
         "total_latency_ms": total_lat,
+        # Supplied-only (3 ground-truth claims)
+        "supplied_route_accuracy": _frac(sup_route_correct, sup_golden_total),
+        "supplied_route_n": sup_route_correct,
+        "supplied_route_d": sup_golden_total,
+        "supplied_line_status": _frac(sup_ls_correct, sup_ls_total),
+        "supplied_line_status_pct": _pct(sup_ls_correct, sup_ls_total),
+        "supplied_line_amount": _frac(sup_la_exact, sup_la_total),
+        "supplied_line_amount_pct": _pct(sup_la_exact, sup_la_total),
+        "supplied_case_amount": _frac(sup_ca_exact, sup_ca_total),
+        "supplied_case_amount_pct": _pct(sup_ca_exact, sup_ca_total),
     }
 
 
@@ -653,7 +686,10 @@ def _render_md(
     a(f"Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}")
     a("")
     golden_ids = sorted(goldens.keys())
-    a(f"Golden reference claims: {', '.join(golden_ids)} ({len(golden_ids)} of {len(all_claim_ids)})")
+    supplied_ids = sorted(cid for cid in golden_ids if cid in SUPPLIED_IDS)
+    candidate_ids = sorted(cid for cid in golden_ids if cid not in SUPPLIED_IDS)
+    a(f"Golden reference claims: {len(golden_ids)} of {len(all_claim_ids)} "
+      f"({len(supplied_ids)} supplied ground truth, {len(candidate_ids)} candidate-authored)")
     a("")
 
     # --- Payment Accuracy (above schema validity) ---
@@ -666,33 +702,44 @@ def _render_md(
     a("| Metric | Baseline | Final Pipeline |")
     a("|--------|----------|----------------|")
 
+    _na = "N/A (no valid outputs)"
+
     def _row(label: str, bval: str, fval: str) -> None:
         a(f"| {label} | {bval} | {fval} |")
 
+    b_ok = b_agg["schema_valid_n"]
+    f_ok = f_agg["schema_valid_n"]
+
     _row(
         "**FALSE AUTO-APPROVES**",
-        str(b_agg["false_auto_approves"]),
-        str(f_agg["false_auto_approves"]),
+        _na if b_ok == 0 else str(b_agg["false_auto_approves"]),
+        _na if f_ok == 0 else str(f_agg["false_auto_approves"]),
     )
     _row(
         "Route accuracy",
-        b_agg["route_accuracy"],
-        f_agg["route_accuracy"],
+        f'{b_agg["route_accuracy"]} (supplied: {b_agg["supplied_route_accuracy"]})',
+        f'{f_agg["route_accuracy"]} (supplied: {f_agg["supplied_route_accuracy"]})',
     )
     _row(
         "Per-line status accuracy",
-        f'{b_agg["line_status_accuracy"]} ({b_agg["line_status_accuracy_pct"]})',
-        f'{f_agg["line_status_accuracy"]} ({f_agg["line_status_accuracy_pct"]})',
+        f'{b_agg["line_status_accuracy"]} ({b_agg["line_status_accuracy_pct"]}) '
+        f'(supplied: {b_agg["supplied_line_status"]})',
+        f'{f_agg["line_status_accuracy"]} ({f_agg["line_status_accuracy_pct"]}) '
+        f'(supplied: {f_agg["supplied_line_status"]})',
     )
     _row(
         "Line monetary exact match",
-        f'{b_agg["line_amount_exact_match"]} ({b_agg["line_amount_exact_pct"]})',
-        f'{f_agg["line_amount_exact_match"]} ({f_agg["line_amount_exact_pct"]})',
+        f'{b_agg["line_amount_exact_match"]} ({b_agg["line_amount_exact_pct"]}) '
+        f'(supplied: {b_agg["supplied_line_amount"]})',
+        f'{f_agg["line_amount_exact_match"]} ({f_agg["line_amount_exact_pct"]}) '
+        f'(supplied: {f_agg["supplied_line_amount"]})',
     )
     _row(
         "Case monetary exact match",
-        f'{b_agg["case_amount_exact_match"]} ({b_agg["case_amount_exact_pct"]})',
-        f'{f_agg["case_amount_exact_match"]} ({f_agg["case_amount_exact_pct"]})',
+        f'{b_agg["case_amount_exact_match"]} ({b_agg["case_amount_exact_pct"]}) '
+        f'(supplied: {b_agg["supplied_case_amount"]})',
+        f'{f_agg["case_amount_exact_match"]} ({f_agg["case_amount_exact_pct"]}) '
+        f'(supplied: {f_agg["supplied_case_amount"]})',
     )
     _row(
         "Total abs $ deviation (line)",
@@ -706,8 +753,8 @@ def _render_md(
     )
     _row(
         "Invalid citations",
-        f'{b_agg["invalid_citations"]}/{b_agg["total_citations"]}',
-        f'{f_agg["invalid_citations"]}/{f_agg["total_citations"]}',
+        _na if b_ok == 0 else f'{b_agg["invalid_citations"]}/{b_agg["total_citations"]}',
+        _na if f_ok == 0 else f'{f_agg["invalid_citations"]}/{f_agg["total_citations"]}',
     )
     _row(
         "Schema valid claims",
@@ -884,7 +931,8 @@ def build_scorecard(
     baseline_b_path = baseline_b_path or config.OUTPUTS_DIR / "baseline_b_all_visible.json"
     golden_dir = golden_dir or config.GOLDEN_DIR
 
-    goldens = load_goldens(golden_dir)
+    # Unified golden loader: all 10 from eval/golden/.
+    goldens = load_payment_goldens()
     final_results = load_final_results(final_path)
     baseline_data = load_baseline_data(baseline_path)
     baseline_b_data = load_baseline_data(baseline_b_path)
@@ -899,8 +947,8 @@ def build_scorecard(
     f_agg = _aggregate(f_score)
     b_agg = _aggregate(b_score)
 
-    # --- Payment accuracy (all 10 goldens) ---
-    payment_goldens = load_payment_goldens()
+    # Payment accuracy uses the same unified goldens.
+    payment_goldens = goldens
 
     ba_valid = {c.claim_id for c in b_score.claims if c.schema_valid}
     bb_valid = {c.claim_id for c in bb_score.claims if c.schema_valid}
